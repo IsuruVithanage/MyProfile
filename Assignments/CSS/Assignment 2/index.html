@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Simple Web Layout - case 2</title>
+    <link rel="stylesheet" href="assets/css/normalize.css">
+    <style>
+        header {
+            position: relative;
+            height: 90px;
+            box-shadow: 5px 6px 9px 4px #917a7a;
+
+        }
+
+        header > img {
+            position: absolute;
+            width: 100px;
+            top: 0;
+            margin: auto;
+            height: 91px;
+        ;
+        }
+
+        header > ul {
+            position: absolute;
+            right: 30px;
+            bottom: 0;
+            top: 0;
+            margin: auto;
+            height: 30px;
+            font-size: 20px;
+            list-style: none;
+        }
+
+        header>ul>li{
+            display: inline-block;
+            padding: 0 10px 0 10px;
+        }
+
+        header>ul>li:hover{
+            cursor: pointer;
+            color: purple;
+        }
+
+        main{
+            position: relative;
+            border: 1px solid red;
+        }
+
+        main>nav{
+            position: absolute;
+            width: 200px;
+            background-color: purple;
+            top: 0;
+            bottom: 0;
+
+        }
+        main>nav>ul{
+            color: white;
+        }
+        main>section>section:nth-child(1)>div{
+            display: inline;
+
+        }
+        main>section>section:nth-child(1)>div:nth-child(1){
+            padding: 0 0 0 250px;
+
+        }
+        main>section>section:nth-child(2)>p{
+            padding: 0 0 0 250px;
+        }
+
+    </style>
+
+</head>
+<body>
+<header>
+    <img src="assets/image/assets_icon_logo%20(1).png" alt="assets/image/assets_icon_logo%20(1).png">
+
+    <ul>
+        <li>Home</li>
+        <li>Service</li>
+        <li>Contacts</li>
+        <li>About Us</li>
+    </ul>
+
+
+</header>
+<main>
+    <nav>
+        <ul>
+            <li>Home</li>
+            <li>Service</li>
+            <li>Contacts</li>
+            <li>About Us</li>
+        </ul>
+    </nav>
+    <section>
+        <section>
+            <div><img src="assets/image/7175922.webp" alt="assets/image/7175922.webp" width="300"></div>
+            <div><img src="assets/image/7175922.webp" alt="assets/image/7175922.webp" width="300"></div>
+            <div><img src="assets/image/7175922.webp" alt="assets/image/7175922.webp" width="300"></div>
+        </section>
+        <section>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid consectetur corporis cumque deserunt,
+                dolore dolorum explicabo iure magnam, molestias natus nesciunt nihil obcaecati, odio pariatur possimus
+                rem sit sunt temporibus.</p>
+            <p>A commodi dolorum illo itaque modi quaerat quos reprehenderit sint voluptate voluptates. A animi debitis
+                eum incidunt maiores molestias optio quod repellat repudiandae temporibus! Illum ipsam ipsum iste minima
+                rem.</p>
+            <p>A accusamus, ad atque aut excepturi incidunt laboriosam obcaecati qui repudiandae, sint temporibus, unde
+                ut vel? Ea eligendi laborum odio quam tenetur! Ad assumenda eius illo iste obcaecati, odit quia.</p>
+            <p>At autem beatae, delectus eius eum incidunt maiores minus neque porro reiciendis reprehenderit, rerum
+                sequi suscipit. Assumenda cum cupiditate distinctio maxime necessitatibus nobis placeat, rem
+                voluptatibus. Amet possimus recusandae sequi.</p>
+            <p>Aperiam architecto assumenda aut commodi consectetur ea earum fuga ipsam iste laborum magni, minima nemo
+                nisi non possimus quaerat reiciendis rem reprehenderit rerum sed sequi, similique sint suscipit vero
+                voluptate.</p>
+            <p>Deleniti eaque illo in ipsam iste molestias neque quae quia quidem ullam. Consectetur facere facilis
+                ipsum mollitia natus nisi nulla quam, sapiente sed unde? Aut autem beatae corporis enim laudantium.</p>
+            <p>Ab accusamus amet consequuntur dignissimos dolore dolorum enim eveniet, inventore iusto maiores
+                necessitatibus numquam officiis perferendis quaerat qui quibusdam quisquam quod reiciendis sapiente
+                sequi similique tempore temporibus ullam voluptatem voluptates.</p>
+            <p>Ad aperiam architecto asperiores autem dolorum ea enim facilis illo impedit ipsam itaque laboriosam
+                libero maiores neque odio optio quae quam, quisquam ratione repellendus. Adipisci delectus quidem rem
+                soluta voluptas.</p>
+            <p>Ad aperiam architecto asperiores autem dolorum ea enim facilis illo impedit ipsam itaque laboriosam
+                libero maiores neque odio optio quae quam, quisquam ratione repellendus. Adipisci delectus quidem rem
+                soluta voluptas.</p>
+        </section>
+
+    </section>
+</main>
+<footer>
+    <p>Develop by IJSE</p>
+</footer>
+
+</body>
+</html>
