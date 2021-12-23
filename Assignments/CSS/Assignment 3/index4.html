@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS03</title>
+    <link rel="stylesheet" href="assets/css/normalize.css">
+
+    <style>
+
+        body>section{
+            position: relative;
+            width: 100%;
+            height: 100vh;
+        }
+
+        body>section>section:nth-child(1){
+            border-radius: 100%;
+            border: 15px solid red;
+            height: 200px;
+            width: 200px;
+            position: fixed;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            z-index: 2;
+
+        }
+
+
+        body>section>section:nth-child(2){
+            border-radius: 100%;
+            border: 15px solid #ba7f7f;
+            height: 229px;
+            width: 229px;
+            position: fixed;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            z-index: 2;
+
+        }
+
+        body>section:nth-child(2)>div{
+            border-radius: 100%;
+            background-color: purple;
+            width: 200px;
+            height: 200px;
+            position: relative;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+        }
+
+        body>section:nth-child(3)>div{
+            border-radius: 100%;
+            background-color: #3c80ab;
+            width: 200px;
+            height: 200px;
+            position: relative;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+        }
+
+        body>section:nth-child(4)>div{
+            border-radius: 100%;
+            background-color: #ff5634;
+            width: 200px;
+            height: 200px;
+            position: relative;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+        }
+
+
+        body>section:nth-child(2)>div>h1{
+            position: absolute;
+            top: 65px;
+            left: 65px;
+            color: white;
+            font-family: Arial;
+            font-size: 30px;
+        }
+
+
+        body>section:nth-child(3)>div>h1{
+            position: absolute;
+            top: 65px;
+            left: 15px;
+            color: white;
+            font-family: Arial;
+            font-size: 30px;
+        }
+
+
+        body>section:nth-child(4)>div>p{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin: auto;
+            color: white;
+            font-family: Arial;
+            font-size: 30px;
+            text-align: center;
+            transform: translate(-50%,-50%);
+        }
+
+    </style>
+</head>
+
+
+<body>
+<section>
+    <section></section>
+    <section></section>
+</section>
+
+<section>
+    <div>
+        <h1>Hello</h1>
+    </div>
+</section>
+
+<section>
+    <div>
+        <h1>Welcome To</h1>
+    </div>
+</section>
+
+<section>
+    <div>
+        <p>Institute Of Software Engineering</p>
+    </div>
+</section>
+
+</body>
+</html>
