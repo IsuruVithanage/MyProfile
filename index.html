@@ -6,29 +6,91 @@
     <meta name="keywords" content="IPMV, Isuru Vithanage, Isuru, isuru vithanage, ipmv">
     <meta name="description" content="I am Isuru Pramod Mawella Vithanage. This is my profile">
     <meta name="viewport" content="width=device-width initial-scale=1">
+    <link rel="stylesheet" href="assets/css/normalize.css">
     <meta name="theme-color" content="black">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;500&display=swap" rel="stylesheet">
+    <style>
+        header {
+            background-image: url("assets/images/2.jpg");
+            height: 100vh;
+            position: relative;
+            /*display: flex;*/
+            /*z-index: 2;*/
+        }
+
+        header > div > ul {
+            position: absolute;
+            right: 10px;
+            top: -17px;
+            bottom: 0;
+            font-size: 24px;
+            font-family:'Noto Serif', serif;
+            list-style: none;
+            color: white;
+            z-index: 2;
+        }
+
+        header > div:nth-child(1) > ul > li {
+            margin-top: 10px;
+            padding: 0 19px 0 19px;
+            display: inline-block;
+
+        }
+
+        header > div:nth-child(1) > div:nth-child(1) > h3 {
+            margin-top: 20px;
+            padding: 0 19px 0 19px;
+            display: inline-block;
+            font-size: 25px;
+            letter-spacing: 5px;
+            position: absolute;
+        }
+
+
+        header > div:nth-child(1) {
+            /*position: relative;*/
+            background-color: rgba(17, 17, 17, 0.5);
+            color: grey;
+            height: 10vh;
+            width: 100%;
+        }
+
+        header > div > div:nth-child(2) {
+            position: relative;
+            border: red;
+            height: 100px;
+            z-index: 2;
+        }
+
+    </style>
 </head>
 <body>
 
 <header>
-    <section>
-        <h1>IPMV</h1>
-    </section>
-    <nav>
-        <ul>
-            <li>Home</li>
-            <li>Education</li>
-            <li>Skills</li>
-            <li>Projecs</li>
-            <li>Assignments</li>
-            <li>About Me</li>
-        </ul>
-    </nav>
+    <div>
+        <div>
+            <!--<img src="assets/icon/IPMV%20logo.jpg" alt="">-->
+            <h3>IPMV</h3>
+        </div>
+
+
+            <ul>
+                <li>Home</li>
+                <li>Education</li>
+                <li>Skills</li>
+                <li>Projecs</li>
+                <li>Assignments</li>
+                <li>About Me</li>
+            </ul>
+
+    </div>
 </header>
 
 <main>
     <section>
-        <img src="assets/images/2.jpg" alt="" width="600">
+        <!--<img src="assets/images/2.jpg" alt="">-->
         <h1>Hi there I'm Isuru Vithanage</h1>
     </section>
     <section>
