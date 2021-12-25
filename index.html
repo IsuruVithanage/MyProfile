@@ -11,25 +11,30 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;500&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=B612&family=Big+Shoulders+Text&family=Doppio+One&family=Inder&family=Noto+Serif&family=Passion+One&family=Rubik:wght@300;500&family=Share:wght@700&display=swap" rel="stylesheet">
     <style>
+        body::-webkit-scrollbar {
+            display: none;
+        }
+
         header {
             background-image: url("assets/images/2.jpg");
             height: 100vh;
+            width: 100vw;
             position: relative;
-            /*display: flex;*/
-            /*z-index: 2;*/
         }
 
         header > div > ul {
             position: absolute;
             right: 10px;
-            top: -17px;
+            top: -15px;
             bottom: 0;
-            font-size: 24px;
-            font-family:'Noto Serif', serif;
+            font-size: 18px;
+            font-family: 'B612', sans-serif;
             list-style: none;
             color: white;
-            z-index: 2;
         }
 
         header > div:nth-child(1) > ul > li {
@@ -40,28 +45,40 @@
         }
 
         header > div:nth-child(1) > div:nth-child(1) > h3 {
-            margin-top: 20px;
+            margin-top:9px;
             padding: 0 19px 0 19px;
             display: inline-block;
             font-size: 25px;
             letter-spacing: 5px;
             position: absolute;
+            font-family: 'B612', sans-serif;
         }
 
 
         header > div:nth-child(1) {
-            /*position: relative;*/
-            background-color: rgba(17, 17, 17, 0.5);
-            color: grey;
-            height: 10vh;
+            position: absolute;
+            background-color: rgba(42, 37, 37, 0.5);
+            color: #848484;
+            height: 7vh;
             width: 100%;
         }
 
-        header > div > div:nth-child(2) {
-            position: relative;
-            border: red;
-            height: 100px;
-            z-index: 2;
+        header>div>h1{
+            color: #ffffff;
+            right: 25px;
+            position: absolute;
+            font-size: 78px;
+            top: 255px;
+            font-family: 'B612', sans-serif;
+        }
+
+        header>div>h2{
+            color: #c1c1c1;
+            right: 25px;
+            position: absolute;
+            font-size: 80px;
+            top: 74px;
+            font-family: 'Passion One', cursive;
         }
 
     </style>
@@ -71,7 +88,6 @@
 <header>
     <div>
         <div>
-            <!--<img src="assets/icon/IPMV%20logo.jpg" alt="">-->
             <h3>IPMV</h3>
         </div>
 
@@ -85,12 +101,16 @@
                 <li>About Me</li>
             </ul>
 
+        <h1>ISURU VITHANAGE</h1>
+        <h2>Hi there</h2>
+        <h2 style="    top: 153px;">I'm</h2>
+
+
     </div>
 </header>
 
 <main>
     <section>
-        <!--<img src="assets/images/2.jpg" alt="">-->
         <h1>Hi there I'm Isuru Vithanage</h1>
     </section>
     <section>
