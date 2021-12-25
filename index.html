@@ -13,7 +13,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;500&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=B612&family=Big+Shoulders+Text&family=Doppio+One&family=Inder&family=Noto+Serif&family=Passion+One&family=Rubik:wght@300;500&family=Share:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=B612&family=Big+Shoulders+Text&family=Doppio+One&family=Inder&family=Noto+Serif&family=Passion+One&family=Rubik:wght@300;500&family=Share:wght@700&display=swap"
+          rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=B612&family=Big+Shoulders+Text&family=Doppio+One&family=Inder&family=Noto+Serif&family=Passion+One&family=Pridi:wght@200;400&family=Rozha+One&family=Rubik:wght@300;500&family=Share:wght@700&display=swap" rel="stylesheet">
     <style>
         body::-webkit-scrollbar {
             display: none;
@@ -45,7 +49,7 @@
         }
 
         header > div:nth-child(1) > div:nth-child(1) > h3 {
-            margin-top:9px;
+            margin-top: 9px;
             padding: 0 19px 0 19px;
             display: inline-block;
             font-size: 25px;
@@ -63,7 +67,7 @@
             width: 100%;
         }
 
-        header>div>h1{
+        header > div > h1 {
             color: #ffffff;
             right: 25px;
             position: absolute;
@@ -72,13 +76,57 @@
             font-family: 'B612', sans-serif;
         }
 
-        header>div>h2{
+        header > div > h2 {
             color: #c1c1c1;
             right: 25px;
             position: absolute;
             font-size: 80px;
             top: 74px;
             font-family: 'Passion One', cursive;
+        }
+
+        main > section:nth-child(1) {
+            background-color: #191919;;
+            height: 100vh;
+            width: 100%;
+            position: relative;
+        }
+
+        main > section:nth-child(1) > h1 {
+            color: white;
+            position: absolute;
+            z-index: 2;
+
+        }
+        main>section:nth-child(1)>div{
+            position: absolute;
+            height: 50px;
+            width: 500px;
+            text-align: justify;
+            text-justify: inter-word;
+            right: 250px;
+            top: 120px;
+            border: white;
+        }
+        main>section:nth-child(1)>div>p:nth-child(1){
+            font-family: 'Pridi', serif;
+            font-size: 35px;
+            color: grey;
+        }
+        main>section:nth-child(1)>div>p:nth-child(2){
+            font-family: 'B612', sans-serif;
+            font-size: 28px;
+            margin-top: -22px;
+        }
+
+
+        main>section:nth-child(1)>img{
+            border-radius: 20px;
+            border: white;
+            left: 122px;
+            top: 93px;
+            position: absolute;
+            box-shadow: 9px 7px 20px 0px black;
         }
 
     </style>
@@ -90,35 +138,30 @@
         <div>
             <h3>IPMV</h3>
         </div>
-
-
-            <ul>
-                <li>Home</li>
-                <li>Education</li>
-                <li>Skills</li>
-                <li>Projecs</li>
-                <li>Assignments</li>
-                <li>About Me</li>
-            </ul>
+        <ul>
+            <li>Home</li>
+            <li>Education</li>
+            <li>Skills</li>
+            <li>Projecs</li>
+            <li>Assignments</li>
+            <li>About Me</li>
+        </ul>
 
         <h1>ISURU VITHANAGE</h1>
         <h2>Hi there</h2>
         <h2 style="    top: 153px;">I'm</h2>
-
-
     </div>
 </header>
 
 <main>
     <section>
-        <h1>Hi there I'm Isuru Vithanage</h1>
-    </section>
-    <section>
         <img src="assets/images/new.jpg" alt="" width="300">
-        <h1>Hello</h1>
-        <p>I am Isuru Pramod Mawella Vithanage. An adaptable, energetic and self
-            motivated student seeking in an opportunity to enhance the knowledge
-            on software engineering.</p>
+        <div>
+            <p>Hello,</p>
+            <p style="color: white">I am Isuru Pramod Mawella Vithanage. An adaptable, energetic and self
+                motivated student seeking in an opportunity to enhance the knowledge
+                on software engineering.</p>
+        </div>
     </section>
     <section>
         <h1>Skills</h1>
