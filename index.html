@@ -17,7 +17,8 @@
           rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=B612&family=Big+Shoulders+Text&family=Doppio+One&family=Inder&family=Noto+Serif&family=Passion+One&family=Pridi:wght@200;400&family=Rozha+One&family=Rubik:wght@300;500&family=Share:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=B612&family=Big+Shoulders+Text&family=Doppio+One&family=Inder&family=Noto+Serif&family=Passion+One&family=Pridi:wght@200;400&family=Rozha+One&family=Rubik:wght@300;500&family=Share:wght@700&display=swap"
+          rel="stylesheet">
     <style>
         body::-webkit-scrollbar {
             display: none;
@@ -98,35 +99,74 @@
             z-index: 2;
 
         }
-        main>section:nth-child(1)>div{
+
+        main > section:nth-child(1) > div {
             position: absolute;
             height: 50px;
-            width: 500px;
+            width: 700px;
             text-align: justify;
             text-justify: inter-word;
-            right: 250px;
+            right: 170px;
             top: 120px;
             border: white;
         }
-        main>section:nth-child(1)>div>p:nth-child(1){
+
+        main > section:nth-child(1) > div > p:nth-child(1) {
             font-family: 'Pridi', serif;
             font-size: 35px;
             color: grey;
         }
-        main>section:nth-child(1)>div>p:nth-child(2){
+
+        main > section:nth-child(1) > div > p:nth-child(2) {
             font-family: 'B612', sans-serif;
             font-size: 28px;
             margin-top: -22px;
         }
 
 
-        main>section:nth-child(1)>img{
+        #mypic {
             border-radius: 20px;
             border: white;
             left: 122px;
             top: 93px;
             position: absolute;
             box-shadow: 9px 7px 20px 0px black;
+        }
+
+        #fb {
+            position: absolute;
+            right: 685px;
+            top: 417px;
+            height: 51px;
+
+        }
+
+        #in {
+            position: absolute;
+            right: 608px;
+            height: 52px;
+            top: 416px;
+        }
+        #tw {
+            position: absolute;
+            right: 530px;
+            height: 51px;
+            top: 415px;
+        }
+
+        #git {
+            position: absolute;
+            right: 455px;
+            height: 49px;
+            top: 415px;
+        }
+
+        #ins{
+            position: absolute;
+            right: 372px;
+            height: 55px;
+            top: 411px;
+
         }
 
     </style>
@@ -155,13 +195,18 @@
 
 <main>
     <section>
-        <img src="assets/images/new.jpg" alt="" width="300">
+        <img id="mypic" src="assets/images/new.jpg" alt="" width="300">
         <div>
             <p>Hello,</p>
             <p style="color: white">I am Isuru Pramod Mawella Vithanage. An adaptable, energetic and self
                 motivated student seeking in an opportunity to enhance the knowledge
                 on software engineering.</p>
         </div>
+        <img id="fb" src="assets/images/icons8-facebook-50%20(1).png" alt="">
+        <img id="in" src="assets/images/icons8-linkedin-50.png" alt="">
+        <img id="tw" src="assets/images/icons8-twitter-squared-50.png" alt="">
+        <img id="git" src="assets/images/icons8-github-50.png" alt="">
+        <img id="ins" src="assets/images/icons8-instagram-64.png" alt="">
     </section>
     <section>
         <h1>Skills</h1>
