@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Animation case 2</title>
+    <link rel="stylesheet" href="assets/css/normalize.css">
+    <style>
+        body {
+            background-color: grey;
+        }
+
+        body > h1 {
+            margin-left: 600px;
+            font-family: Arial;
+            color: white;
+        }
+
+        main {
+            width: 700px;
+            height: 500px;
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            top: 0;
+            margin: auto;
+            overflow: hidden;
+            border: 4px solid white;
+        }
+
+        section {
+            height: 100%;
+            width: 300%;
+            display: flex;
+            animation-name: slid;
+            animation-duration: 10s;
+            animation-iteration-count: infinite;
+            position: absolute;
+            animation-direction: alternate;
+        }
+
+        section > div {
+            width: 100%;
+
+        }
+
+        section > div:nth-child(1) {
+            background-image: url("assets/image/HD-wallpaper-macos-monterey-dark-wwdc-2021.jpg");
+            background-size: cover;
+            background-position: center;
+        }
+
+        section > div:nth-child(2) {
+            background-image: url("assets/image/macos-big-sur-apple-layers-fluidic-colorful-wwdc-stock-4096x2304-1455.jpg");
+            background-size: cover;
+            background-position: center;
+        }
+
+        section > div:nth-child(3) {
+            background-image: url("assets/image/plain-black-wallpaper.jpg");
+            background-size: cover;
+            background-position: center;
+        }
+
+
+        @keyframes slid {
+            0% {
+                transform: translateX(0);
+            }
+            50% {
+                transform: translateX(-33.33%);
+            }
+            100% {
+                transform: translateX(-66.66%);
+            }
+        }
+    </style>
+</head>
+<body>
+<h1>CSS Slider</h1>
+<main>
+    <section>
+        <div></div>
+        <div></div>
+        <div></div>
+    </section>
+</main>
+</body>
+</html>
