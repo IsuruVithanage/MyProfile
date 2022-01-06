@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Case 6</title>
+    <style>
+        main {
+            width: 100vw;
+            height: 100vh;
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            top: 0;
+            margin: auto;
+            overflow: hidden;
+            background-image: url("assets/images/sky.jpg");
+        }
+
+        section:nth-child(1) {
+            top: 467px;
+            height: 30%;
+            width: 600%;
+            display: flex;
+            animation-name: slid;
+            animation-duration: 5s;
+            animation-iteration-count: infinite;
+            position: absolute;
+            animation-direction: normal;
+        }
+
+        section:nth-child(2) {
+            top: 268px;
+            height: 30%;
+            width: 600%;
+            display: flex;
+            animation-name: slid;
+            animation-duration: 5s;
+            animation-iteration-count: infinite;
+            position: absolute;
+            animation-direction: normal;
+
+        }
+
+        section:nth-child(1) > div {
+            width: 100%;
+            height: 100%;
+            background-image: url("assets/images/road.jpg");
+            background-size: cover;
+            background-position: center;
+
+        }
+
+        section:nth-child(2) > div {
+            width: 100%;
+            height: 100%;
+            background-image: url("assets/images/city.png");
+            background-size: cover;
+            background-position: center;
+
+        }
+
+        section:nth-child(3) > img {
+            left: 0;
+            right: 0;
+            bottom: 0;
+            top: 265px;
+            margin: auto;
+            position: absolute;
+            height: 150px;
+        }
+
+        section:nth-child(4) {
+            left: 530px;
+            right: 0;
+            bottom: 0;
+            top: 460px;
+            position: relative;
+
+        }
+
+        section:nth-child(4) > div {
+            position: absolute;
+            animation-name: rotate;
+            animation-duration: 5s;
+            animation-iteration-count: infinite;
+            animation-direction: normal;
+        }
+
+        section:nth-child(4) > div > img {
+            height: 80px;
+        }
+
+        section:nth-child(4) > div:nth-child(2) {
+            left: 220px;
+        }
+
+        @keyframes slid {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        @keyframes rotate {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+
+    </style>
+</head>
+<body>
+<main>
+    <section>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </section>
+    <section>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </section>
+    <section>
+        <img src="assets/images/car.png" alt="">
+    </section>
+    <section>
+        <div>
+            <img src="assets/images/wheel.png" alt="">
+        </div>
+        <div>
+            <img src="assets/images/wheel.png" alt="">
+        </div>
+    </section>
+</main>
+</body>
+</html>
