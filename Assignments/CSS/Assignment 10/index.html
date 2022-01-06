@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Case 5</title>
+    <style>
+        div:nth-child(1){
+            border: 3px solid red;
+            position: absolute;
+            height: 100px;
+            width: 100px;
+            border-radius: 100%;
+            left: 0;
+            bottom: 0;
+            top: 0;
+            right: 0;
+            margin: auto;
+            animation-name: drop;
+            animation-duration: 0.7s;
+            animation-iteration-count: infinite;
+            animation-direction: normal;
+        }
+
+        @keyframes drop {
+            0% {
+                height: 100px;
+                width: 100px;
+            }
+            25% {
+                height: 150px;
+                width: 150px;
+                border-color: #ff5252;
+
+            }
+            50% {
+                height: 200px;
+                width: 200px;
+                border-color: #ff8888;
+
+            }
+            75% {
+                height: 250px;
+                width: 250px;
+                border-color: #ffc9c9;
+
+            }
+            100% {
+                height: 300px;
+                width: 300px;
+                border-color: #ffffff;
+
+            }
+        }
+
+    </style>
+
+</head>
+<body>
+<div></div>
+<div></div>
+</body>
+</html>
