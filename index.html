@@ -21,13 +21,13 @@
           rel="stylesheet">
     <style>
         body::-webkit-scrollbar {
-            display: none;
+            /*display: none;*/
         }
 
         header {
             background-image: url("assets/images/2.jpg");
             height: 100vh;
-            width: 100vw;
+            width: 100%;
             position: relative;
             /*background-size: cover;*/
         }
@@ -87,11 +87,16 @@
             font-family: 'Oswald', sans-serif;
         }
 
+        main{
+
+        }
+
         main > section:nth-child(1) {
             background-color: #191919;
             height: 100vh;
             width: 100%;
             position: relative;
+
         }
 
         main > section:nth-child(1) > h1 {
@@ -178,14 +183,17 @@
             background-size: cover;
             background-position: center;
             height: 100vh;
-            width: 100vw;
+            width: 100%;
             position: relative;
-            top: -21px;
+
         }
 
-        main > section:nth-child(2) > img {
-            /*display: inline;
-            position: absolute;*/
+        main > section:nth-child(2) > h1 {
+            color: white;
+            font-family: 'Oswald', sans-serif;
+            text-align: center;
+            padding-top: 50px;
+            font-size: 50px;
         }
 
         main > section:nth-child(2) > figure {
@@ -194,59 +202,59 @@
         }
 
         main > section:nth-child(2) > figure:nth-child(11) {
-            left: 927px;
+            left: 898px;
             top: 433px;
         }
 
         main > section:nth-child(2) > figure:nth-child(10) {
-            left: 707px;
+            left: 670px;
             top: 418px;
         }
 
         main > section:nth-child(2) > figure:nth-child(9) {
-            left: 500px;
+            left: 450px;
             top: 418px;
         }
 
         main > section:nth-child(2) > figure:nth-child(8) {
-            left: 297px;
+            left: 240px;
             top: 430px;
         }
 
         main > section:nth-child(2) > figure:nth-child(7) {
-            left: 500px;
+            left: 450px;
             top: 148px;
         }
 
         main > section:nth-child(2) > figure:nth-child(6) {
-            left: 1140px;
+            left: 1099px;
             top: 148px;
         }
 
         main > section:nth-child(2) > figure:nth-child(5) {
-            left: 907px;
+            left: 870px;
             top: 137px;
         }
 
         main > section:nth-child(2) > figure:nth-child(4) {
-            left: 707px;
+            left: 670px;
             top: 150px;
         }
 
         main > section:nth-child(2) > figure:nth-child(3) {
-            left: 298px;
+            left: 240px;
             top: 149px;
         }
 
         main > section:nth-child(2) > figure:nth-child(2) {
-            left: 104px;
+            left: 50px;
             top: 146px;
         }
 
-        main > section:nth-child(2) > figure:nth-child(1) {
-            left: 600px;
+        /*main > section:nth-child(2) > figure:nth-child(1) {
+            left: 670px;
             top: 143px;
-        }
+        }*/
 
         main > section:nth-child(2) > figure > figcaption {
             color: white;
@@ -261,7 +269,6 @@
             height: 100vh;
             width: 100%;
             position: relative;
-            top: -42px;
             color: white;
         }
 
@@ -290,27 +297,13 @@
 
         }
 
-        footer {
-            background-color: #090909;
-            color: white;
-            height: 500px;
-            position: relative;
-        }
 
-        #foot{
-            width: 365px;
-            height: 70px;
-            position: relative;
-            left: 571px;
-            top: 331px;
-        }
 
         main>section:nth-child(4){
             background-color: black;
             height: 100vh;
-            width: 100vw;
+            width: 100%;
             position: relative;
-            top: -42px;
             color: white;
         }
 
@@ -322,9 +315,8 @@
         main>section:nth-child(5){
             background-color: black;
             height: 100vh;
-            width: 100vw;
+            width: 100%;
             position: relative;
-            top: -42px;
             color: white;
         }
         main>section:nth-child(5)>img{
@@ -332,10 +324,20 @@
             border-radius: 25px;
         }
 
+        footer {
+            background-color: #090909;
+            color: white;
+            width: 100%;
+            height: 500px;
+            position: relative;
+        }
 
-
-
-
+        #foot{
+            width: 365px;
+            height: 70px;
+            position: relative;
+            left: 571px;
+        }
 
 
     </style>
@@ -378,8 +380,7 @@
         <img id="ins" src="assets/images/icons8-instagram-64.png" alt="">
     </section>
     <section>
-        <h1 style="color: white; font-family: 'Oswald', sans-serif; text-align: center; padding-top: 50px; font-size: 50px">
-            Skills</h1>
+        <h1>Skills</h1>
         <figure>
             <img src="assets/icon/java.png" alt="" width="100">
             <figcaption style="left: 23px">JAVA</figcaption>
@@ -427,10 +428,10 @@
             <h3>Primary & Secondary Education</h3>
             <p style="top: 80px">Studied at Mahinda College Galle 2006 - 2019</p>
         </div>
-        <div style="left: 960px; top: 250px; width: 460px">
+        <!--<div style="left: 960px; top: 250px; width: 460px">
             <h3>Professional Studies</h3>
             <p>Following GDSE course program at IJSE as my Graduate Diploma 2021 - 2023</p>
-        </div>
+        </div>-->
         <div style="left: 170px; top: 430px; width: 460px">
             <h3>Higher Education</h3>
             <p>Undergraduate in Bsc. Information Technology & Management in Univercity of Moratuwa 2022-2025</p>
@@ -442,7 +443,7 @@
     </section>
     <section>
         <h1 style="font-family: 'Oswald', sans-serif;font-size: 50px; text-align: center; padding-top: 50px">My Projects</h1>
-        <img src="assets/images/gr.jpg" alt="" width="430" style="left: 981px; top: 224px">
+        <!--<img &lt;!&ndash;src="assets/images/gr.jpg" alt="" width="430" style="left: 981px; top: 224px">&ndash;&gt;-->
         <img src="assets/images/sm.jpg" alt="" width="430" style="left: 109px; top: 224px">
         <img src="assets/images/176.jpg" alt="" width="500" style="left: 514px; top: 192px">
 
@@ -459,9 +460,9 @@
     </section>
     <section>
         <h1 style="font-family: 'Oswald', sans-serif;font-size: 50px; text-align: center; padding-top: 50px">Assignments</h1>
-        <img src="assets/images/assignment.jpg" alt="" width="330" style="left: 981px; top: 224px">
-        <img src="assets/images/assignment.jpg" alt="" width="330" style="left: 109px; top: 224px">
-        <img src="assets/images/assignment.jpg" alt="" width="350" style="left: 514px; top: 192px">
+        <img src="assets/images/assignment.jpg" alt="" width="330" style="left: 908px; top: 181px">
+        <img src="assets/images/assignment.jpg" alt="" width="330" style="left: 282px; top: 181px">
+        <img src="assets/images/assignment.jpg" alt="" width="350" style="left: 585px; top: 169px">
 
         <div style="width: 30px;height: 30px;border-radius: 100%; background-color: #4e4e4e; position: absolute; left: 763px; top: 581px"></div>
         <div style="width: 30px;height: 30px;border-radius: 100%; background-color: #151515; position: absolute; left: 933px; top: 581px"></div>
