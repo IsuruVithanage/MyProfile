@@ -20,9 +20,6 @@
     <link href="https://fonts.googleapis.com/css2?family=B612&family=Big+Shoulders+Text&family=Doppio+One&family=Inder&family=Noto+Serif&family=Passion+One&family=Pridi:wght@200;400&family=Rozha+One&family=Rubik:wght@300;500&family=Share:wght@700&display=swap"
           rel="stylesheet">-->
     <style>
-        body::-webkit-scrollbar {
-            /*display: none;*/
-        }
 
         header {
             background-image: url("assets/images/2.jpg");
@@ -50,6 +47,10 @@
             display: inline-block;
             color: white;
 
+        }
+        header > div:nth-child(1) > div{
+            position: relative;
+            height: 30px;
         }
 
         header > div:nth-child(1) > div:nth-child(1) > h3 {
@@ -86,6 +87,10 @@
             font-size: 80px;
             top: 74px;
             font-family: 'Oswald', sans-serif;
+        }
+
+        header > div > h2:nth-child(5) {
+            top: 153px;
         }
 
         main {
@@ -508,6 +513,74 @@
             background: rgb(1, 1, 1);
         }
 
+        @media all and (max-width: 425px){
+            header>div>ul{
+                position: absolute;
+                right: 0;
+                left: -37px;
+                top: 39px;
+                bottom: 0;
+                font-size: 15px;
+                font-family: 'B612', sans-serif;
+                list-style: none;
+                color: white;
+                width: max-content;
+                margin: auto;
+            }
+
+            header > div:nth-child(1) > ul > a > li {
+                padding: 0 3px 0 3px;
+                margin-top: 0;
+            }
+
+            header > div:nth-child(1) {
+                height: 12vh;
+
+            }
+
+            header > div:nth-child(1) > div {
+                position: relative;
+                height: 30px;
+                left: 155px;
+                color: #242424;
+                margin-top: 5px;
+            }
+
+            header{
+                width: 425px;
+                background-size: cover;
+                top: -5px;
+            }
+
+            header > div > h1 {
+                color: #ffffff;
+                right: 25px;
+                position: absolute;
+                font-size: 41px;
+                top: 409px;
+                font-family: 'Oswald', sans-serif;
+            }
+
+            header > div > h2 {
+                color: #c1c1c1;
+                right: 317px;
+                position: absolute;
+                font-size: 23px;
+                top: 363px;
+                font-family: 'Oswald', sans-serif;
+            }
+
+            header > div > h2:nth-child(5) {
+                top: 390px;
+                left: 22px;
+            }
+
+        }
+
+
+
+
+
 
     </style>
 </head>
@@ -540,7 +613,7 @@
         </ul>
         <h1>ISURU VITHANAGE</h1>
         <h2>Hi there</h2>
-        <h2 style="top: 153px;">I'm</h2>
+        <h2>I'm</h2>
     </div>
 
 </header>
