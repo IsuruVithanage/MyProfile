@@ -32,6 +32,7 @@
             /*background-size: cover;*/
         }
 
+
         header > div > ul {
             position: absolute;
             right: 10px;
@@ -43,10 +44,11 @@
             color: white;
         }
 
-        header > div:nth-child(1) > ul > li {
+        header > div:nth-child(1) > ul > a> li {
             margin-top: 10px;
             padding: 0 19px 0 19px;
             display: inline-block;
+            color: white;
 
         }
 
@@ -62,7 +64,6 @@
 
 
         header > div:nth-child(1) {
-            position: absolute;
             background-color: rgba(42, 37, 37, 0.5);
             color: #848484;
             height: 7vh;
@@ -474,28 +475,28 @@
 </head>
 <body>
 
-<header>
+<header id="head">
     <div>
         <div>
             <h3>IPMV</h3>
         </div>
         <ul>
-            <li>Home</li>
-            <li>Education</li>
-            <li>Skills</li>
-            <li>Projecs</li>
-            <li>Assignments</li>
-            <li>About Me</li>
+            <a href="#head"><li>Home</li></a>
+            <a href="#edu"><li>Education</li></a>
+            <a href="#skills"><li>Skills</li></a>
+            <a href="#project"><li>Projecs</li></a>
+            <a href="#assignment"><li>Assignments</li></a>
+            <a href="#aboutMe"><li>About Me</li></a>
         </ul>
-
         <h1>ISURU VITHANAGE</h1>
         <h2>Hi there</h2>
-        <h2 style="    top: 153px;">I'm</h2>
+        <h2 style="top: 153px;">I'm</h2>
     </div>
+
 </header>
 
 <main>
-    <section>
+    <section id="aboutMe">
         <img id="mypic" src="assets/images/new.jpg" alt="" width="300">
         <div>
             <p>Hello,</p>
@@ -509,7 +510,7 @@
         <img id="git" src="assets/images/icons8-github-50.png" alt="">
         <img id="ins" src="assets/images/icons8-instagram-64.png" alt="">
     </section>
-    <section>
+    <section id="skills">
         <h1>Skills</h1>
         <figure>
             <img src="assets/icon/java.png" alt="" width="100">
@@ -552,7 +553,7 @@
             <figcaption style="top: 130px">Illastrater</figcaption>
         </figure>
     </section>
-    <section>
+    <section id="edu">
         <h1>Education</h1>
         <div>
             <h3>Primary & Secondary Education</h3>
@@ -571,7 +572,7 @@
         <div></div>
         <div></div>
     </section>
-    <section>
+    <section id="project">
         <h1>My Projects</h1>
         <img src="assets/images/gr.jpg" alt="" width="330" style="left: 852px; top: 224px">
         <img src="assets/images/sm.jpg" alt="" width="330" style="left: 157px; top: 224px">
@@ -588,7 +589,7 @@
             <p>View All</p>
         </div>
     </section>
-    <section>
+    <section id="assignment">
         <h1>Assignments</h1>
         <img src="assets/images/assignment.jpg" alt="" width="330" style="left: 824px; top: 171px">
         <img src="assets/images/assignment.jpg" alt="" width="330" style="left: 189px; top: 171px">
