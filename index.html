@@ -127,6 +127,15 @@
             border: white;
         }
 
+        main > section:nth-child(1) > div:nth-child(3) {
+            width: 365px;
+            height: 70px;
+            position: relative;
+            left: 661px;
+            top: 389px;
+
+        }
+
         main > section:nth-child(1) > div > p:nth-child(1) {
             font-family: 'Pridi', serif;
             font-size: 35px;
@@ -149,42 +158,7 @@
             box-shadow: 9px 7px 20px 0px black;
         }
 
-        #fb {
-            position: absolute;
-            right: 685px;
-            top: 417px;
-            height: 51px;
 
-        }
-
-        #in {
-            position: absolute;
-            right: 608px;
-            height: 52px;
-            top: 416px;
-        }
-
-        #tw {
-            position: absolute;
-            right: 530px;
-            height: 51px;
-            top: 415px;
-        }
-
-        #git {
-            position: absolute;
-            right: 455px;
-            height: 49px;
-            top: 415px;
-        }
-
-        #ins {
-            position: absolute;
-            right: 372px;
-            height: 55px;
-            top: 411px;
-
-        }
 
         main > section:nth-child(2) {
             background-image: url("assets/icon/skillback.jpg");
@@ -461,7 +435,7 @@
             position: relative;
         }
 
-        #foot {
+        .icon {
             width: 365px;
             height: 70px;
             position: relative;
@@ -575,6 +549,45 @@
                 left: 22px;
             }
 
+            #mypic {
+                width: 160px;
+            }
+
+            main > section:nth-child(1) > div {
+                height: 50px;
+                width: 367px;
+                right: 27px;
+                top: 326px;
+            }
+
+            main > section:nth-child(1) > div > p:nth-child(1) {
+                font-size: 24px;
+            }
+
+            main > section:nth-child(1) > div > p:nth-child(2) {
+                font-size: 14px;
+            }
+
+            main > section:nth-child(1) > div:nth-child(3) {
+                width: 365px;
+                height: 70px;
+                position: relative;
+                left: 32px;
+                top: 447px;
+
+            }
+
+            main > section:nth-child(1){
+                top: -6px;
+
+            }
+
+            main{
+                height: 2928px;
+            }
+
+
+
         }
 
 
@@ -627,11 +640,26 @@
                 motivated student seeking in an opportunity to enhance the knowledge
                 on software engineering.</p>
         </div>
-        <img id="fb" src="assets/images/icons8-facebook-50%20(1).png" alt="">
-        <img id="in" src="assets/images/icons8-linkedin-50.png" alt="">
-        <img id="tw" src="assets/images/icons8-twitter-squared-50.png" alt="">
-        <img id="git" src="assets/images/icons8-github-50.png" alt="">
-        <img id="ins" src="assets/images/icons8-instagram-64.png" alt="">
+        <div>
+            <a href="https://www.facebook.com/profile.php?id=100014692804661" target="_blank">
+                <img src="assets/images/icons8-facebook-50%20(1).png" alt="" width="45"
+                     style="position: absolute; left: 33px; top: 13px">
+            </a>
+            <a href="https://www.linkedin.com/in/isuru-vithanage-07ba6a174/" target="_blank">
+                <img src="assets/images/icons8-linkedin-50.png" alt="" width="45"
+                     style="position: absolute; left: 101px; top: 13px">
+            </a>
+            <a href="https://twitter.com/__Isuru__" target="_blank">
+                <img src="assets/images/icons8-twitter-squared-50.png" alt="" width="45"
+                     style="position: absolute; left: 167px; top: 13px">
+            </a>
+            <a href="https://github.com/IsuruVithanage" target="_blank">
+                <img src="assets/images/icons8-github-50.png" alt="" width="42"
+                     style="position: absolute; left: 228px; top: 13px">
+            </a>
+            <img src="assets/images/icons8-instagram-64.png" alt="" width="50"
+                 style="position: absolute; left: 286px; top: 10px">
+        </div>
     </section>
     <section id="skills">
         <h1>Skills</h1>
@@ -745,7 +773,7 @@
             CV</a>
         </h4>
     </div>
-    <div id="foot">
+    <div class="icon">
         <a href="https://www.facebook.com/profile.php?id=100014692804661" target="_blank">
             <img src="assets/images/icons8-facebook-50%20(1).png" alt="" width="45"
                  style="position: absolute; left: 33px; top: 13px">
