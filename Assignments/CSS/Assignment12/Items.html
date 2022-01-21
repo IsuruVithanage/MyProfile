@@ -7,6 +7,146 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
+<header>
+    <nav class="navbar navbar-expand-lg navbar-light shadow p-3 mb-4 rounded" style="background-color: #e3fded;">
+        <div class="container-fluid">
+            <a class="navbar-brand fs-3" href="#" style="color: #00a305">
+                <img src="assets/imges/inlogo1.png" alt="" width="40" height="40" class="d-inline-block align-text-top">
+                Green Market POS
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Customers</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Orders</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Items</a>
+                    </li>
 
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+</header>
+<main>
+    <div>
+        <h3 class="ps-4" style="font-family: Arial;">
+            <img src="assets/imges/items.png" alt="" width="33" height="33" class="d-inline-block align-text-top">
+            Items
+        </h3>
+    </div>
+
+    <section class="container-fluid">
+        <section class="row mt-3">
+            <div class="col-6">
+                <img src="assets/imges/fod.jpg" class="img-fluid" alt="">
+            </div>
+            <div class="col-6 ps-5">
+                <section class="row mt-3">
+                    <div class="col-8">
+                        <form>
+                            <div class="mb-3">
+                                <label for="exampleInputEmail1" class="form-label">Search Item</label>
+                                <input type="email" class="form-control" id="exampleInputEmail1"
+                                       aria-describedby="emailHelp" placeholder="Name/ID">
+                                <div id="emailHelp" class="form-text">Enter item name or ID to search Item.
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                            <button type="submit" class="btn btn-primary">Clear</button>
+                            <button class="btn btn-outline-info ms-3" data-bs-toggle="modal" data-bs-target="#newitem" type="button">New Item</button>
+                        </form>
+                    </div>
+                    <div class="col-2 mt-3 pt-3 ps-2">
+                        <button type="submit" class="btn btn-outline-success">Search</button>
+                    </div>
+                </section>
+                <section class="row mt-5">
+                    <div class="col-11">
+                        <table class="table table-hover">
+                            <thead>
+                            <tr style="background-color: #abffcb">
+                                <th scope="col">ID</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">QTY</th>
+                                <th scope="col">Price</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <th scope="row">I001</th>
+                                <td>Potato</td>
+                                <td>20</td>
+                                <td>23</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">I001</th>
+                                <td>Potato</td>
+                                <td>20</td>
+                                <td>23</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">I001</th>
+                                <td>Potato</td>
+                                <td>20</td>
+                                <td>23</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">I001</th>
+                                <td>Potato</td>
+                                <td>20</td>
+                                <td>23</td>
+                            </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+            </div>
+        </section>
+        <!-- Modal -->
+        <div class="modal fade" id="newitem" tabindex="-1" aria-labelledby="newitem" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header bg-success">
+                        <h5 class="modal-title" id="exampleModalLabel" style="color: white">New Item</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <label for="exampleInputEmail1" class="form-label">Name</label>
+                        <input type="email" class="form-control" id="itemName"
+                               aria-describedby="emailHelp" placeholder="Name">
+                        <label for="exampleInputEmail1" class="form-label mt-3">QTY</label>
+                        <input type="email" class="form-control" id="QTY"
+                               aria-describedby="emailHelp" placeholder="QTY">
+                        <label for="exampleInputEmail1" class="form-label mt-3">Price</label>
+                        <input type="email" class="form-control" id="price"
+                               aria-describedby="emailHelp" placeholder="Price">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Renew</button>
+                        <button type="button" class="btn btn-success">Save Item</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
 </body>
 </html>
