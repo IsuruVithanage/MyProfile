@@ -9,7 +9,7 @@
 </head>
 <body>
 <header>
-    <nav class="navbar navbar-expand-lg navbar-light shadow p-3 mb-3 rounded" style="background-color: #e3fded;">
+    <nav class="navbar navbar-expand-lg navbar-light shadow p-3 mb-4 rounded" style="background-color: #e3fded;">
         <div class="container-fluid">
             <a class="navbar-brand fs-3" href="#" style="color: #00a305">
                 <img src="assets/imges/inlogo1.png" alt="" width="40" height="40" class="d-inline-block align-text-top">
@@ -42,25 +42,41 @@
 </header>
 <main>
     <div>
-        <h3 class="ps-4 mt-0" style="font-family: Arial">
+        <h3 class="ps-4" style="font-family: Arial;">
             <img src="assets/imges/cust.png" alt="" width="33" height="33" class="d-inline-block align-text-top">
             Customers
         </h3>
     </div>
 
-    <section class="row mt-5">
-        <form >
-            <div class="input-group mb-3">
-                <input type="text" class="form-control" placeholder="Name/NIC" aria-label="Name/NIC" aria-describedby="button-addon2">
-                <button class="btn btn-outline-secondary bg-success" type="button" id="button-addon2">Search</button>
+    <section class="container-fluid">
+        <section class="row mt-3">
+            <div class="col-6">
+                <img src="assets/imges/customerbg.jpg" class="img-fluid" alt="">
             </div>
-            <div class="mb-3 form-check">
-                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                <label class="form-check-label" for="exampleCheck1">Check me out</label>
+            <div class="col-6">
+                <section class="row mt-3">
+                    <div class="col-6">
+                        <form>
+                            <div class="mb-3">
+                                <label for="exampleInputEmail1" class="form-label">Search Customer</label>
+                                <input type="email" class="form-control" id="exampleInputEmail1"
+                                       aria-describedby="emailHelp" placeholder="Name/NIC">
+                                <div id="emailHelp" class="form-text">Enter customer name or NIC to search customer.
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                            <button type="submit" class="btn btn-primary">Clear</button>
+                            <button class="btn btn-outline-info ms-3" type="button">New Customer</button>
+                        </form>
+                    </div>
+                    <div class="col-6 mt-3 pt-3 ps-2">
+                        <button type="submit" class="btn btn-outline-success">Search</button>
+                    </div>
+                </section>
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
+        </section>
     </section>
+
 </main>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
