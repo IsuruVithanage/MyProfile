@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Green Market POS</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<header>
+    <nav class="navbar navbar-expand-lg navbar-light shadow p-3 mb-4 rounded" style="background-color: #e3fded;">
+        <div class="container-fluid">
+            <a class="navbar-brand fs-3" href="#" style="color: #00a305">
+                <img src="assets/imges/inlogo1.png" alt="" width="40" height="40" class="d-inline-block align-text-top">
+                Green Market POS
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Customers</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Orders</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Items</a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+</header>
+<main>
+    <div>
+        <h3 class="ps-4" style="font-family: Arial;">
+            <img src="assets/imges/order.png" alt="" width="33" height="33" class="d-inline-block align-text-top">
+            Orders
+        </h3>
+    </div>
+
+    <section class="container-fluid">
+        <section class="row mt-3">
+            <div class="col-4 ps-4">
+                <div class="row" style="background-color: #abffcb">
+                    <h6 class="pt-1">Invoice Details</h6>
+                </div>
+                <div class="row" style="background-color: #ebfff1">
+                    <div class="row">
+                        <div class="col-6 mt-2">
+                            <label for="oID" class="form-label">Order ID</label>
+                            <input type="email" class="form-control" id="oID"
+                                   aria-describedby="emailHelp" placeholder="Order ID">
+                            <label for="Customer" class="form-label mt-2">Customer</label>
+                            <input type="email" class="form-control" id="customer"
+                                   aria-describedby="emailHelp" placeholder="Customer">
+                            <label for="Name" class="form-label mt-2">Name</label>
+                            <input type="email" class="form-control" id="name"
+                                   aria-describedby="emailHelp" placeholder="Name">
+                        </div>
+                        <div class="col-6 mt-2">
+                            <label for="date" class="form-label">Date</label>
+                            <input type="date" class="form-control" id="date"
+                                   aria-describedby="emailHelp">
+                            <label for="CustomerID" class="form-label mt-2">Customer ID</label>
+                            <input type="email" class="form-control" id="CustomerID"
+                                   aria-describedby="emailHelp" placeholder="Customer ID">
+                            <label for="Salary" class="form-label mt-2">Salary</label>
+                            <input type="email" class="form-control" id="Salary"
+                                   aria-describedby="emailHelp" placeholder="Salary">
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label for="address" class="form-label mt-2">Address</label>
+                        <input type="email" class="form-control ms-2" id="address"
+                               aria-describedby="emailHelp" placeholder="Address">
+                    </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-4"></div>
+            <div class="col-4"></div>
+        </section>
+    </section>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+</body>
+</html>
