@@ -49,7 +49,7 @@
 
     <section class="container-fluid">
         <section class="row mt-3">
-            <div class="col-4 ps-4">
+            <div class="col-4 ps-5">
                 <div class="row" style="background-color: #abffcb">
                     <h6 class="pt-1">Invoice Details</h6>
                 </div>
@@ -136,7 +136,65 @@
 
                 </div>
             </div>
-            <div class="col-3"></div>
+            <div class="col-3 ps-4 mt-3 pe-5">
+                <h3>Total : 1000Rs/=</h3>
+                <h3>SubTotal : 900Rs/=</h3>
+                <div class="row">
+                    <div class="col-6">
+                        <label for="Cash" class="form-label mt-2">Cash</label>
+                        <input type="email" class="form-control" id="Cash"
+                               aria-describedby="emailHelp" placeholder="Cash">
+                    </div>
+                    <div class="col-6">
+                        <label for="Discount" class="form-label mt-2">Discount</label>
+                        <input type="number" class="form-control" id="Discount"
+                               aria-describedby="emailHelp" placeholder="code">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-8">
+                        <label for="Balance" class="form-label mt-2">Balance</label>
+                        <input type="email" class="form-control" id="Balance"
+                               aria-describedby="emailHelp" placeholder="Balance">
+                    </div>
+
+                </div>
+                <div class="row mb-3 mt-4">
+                    <div class="col-2"></div>
+                    <div class="col-7 ps-4 ms-3">
+                        <button type="button" class="btn btn-success" data-bs-dismiss="modal">Purchase</button>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <section class="row mt-4">
+            <div class="col-1"></div>
+            <div class="col-10">
+                <table class="table table-hover">
+                    <thead>
+                    <tr style="background-color: #abffcb">
+                        <th scope="col">Item Code</th>
+                        <th scope="col">Item Name</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">QTY</th>
+                        <th scope="col">Total</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <th scope="row">I001</th>
+                        <td>Potato</td>
+                        <td>20</td>
+                        <td>23</td>
+                        <td>480</td>
+                    </tr>
+
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-1"></div>
+
         </section>
     </section>
 </main>
