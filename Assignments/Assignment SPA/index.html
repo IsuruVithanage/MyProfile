@@ -5,14 +5,6 @@
     <title>Green Market POS</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
-        #mi{
-            display: none;
-        }
-        #mo{
-            display: none;
-        }
-    </style>
 
 </head>
 <body>
@@ -83,7 +75,7 @@
                 </section>
                 <section class="row mt-5">
                     <div class="col-11">
-                        <table class="table table-hover">
+                        <table class="table table-hover" id="custTable">
                             <thead>
                             <tr style="background-color: #abffcb">
                                 <th scope="col">ID</th>
@@ -93,36 +85,7 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
-                                <th scope="row">C001</th>
-                                <td>Kamal</td>
-                                <td>Galle</td>
-                                <td>25000</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">C001</th>
-                                <td>Kamal</td>
-                                <td>Galle</td>
-                                <td>25000</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">C001</th>
-                                <td>Kamal</td>
-                                <td>Galle</td>
-                                <td>25000</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">C001</th>
-                                <td>Kamal</td>
-                                <td>Galle</td>
-                                <td>25000</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">C001</th>
-                                <td>Kamal</td>
-                                <td>Galle</td>
-                                <td>25000</td>
-                            </tr>
+
                             </tbody>
                         </table>
                     </div>
@@ -151,7 +114,7 @@
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                         <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Renew</button>
-                        <button type="button" class="btn btn-success">Save Customer</button>
+                        <button type="button" class="btn btn-success" id="btnsaveCust" >Save Customer</button>
                     </div>
                 </div>
             </div>
@@ -426,35 +389,77 @@
         </section>
     </section>
 </main>
+
+<script src="assets/bootstrap/js/bootstrap.min.js"></script>
+<script src="assets/jQuerry/jquery-3.6.0.min.js"></script>
 <script>
-    document.getElementById("customers").addEventListener("click",function () {
-        document.getElementById("mc").style.display="block";
-        document.getElementById("mi").style.display="none";
-        document.getElementById("mo").style.display="none";
+    $("#mc").css("display","block");
+    $("#mi").css("display","none");
+    $("#mo").css("display","none");
 
-
+    $("#customers").click(function () {
+        $("#mc").css("display","block");
+        $("#mi").css("display","none");
+        $("#mo").css("display","none");
     });
 
-    document.getElementById("items").addEventListener("click",function () {
-        document.getElementById("mc").style.display="none";
-        document.getElementById("mi").style.display="block";
-        document.getElementById("mo").style.display="none";
-
-
+    $("#items").click(function () {
+        $("#mc").css("display","none");
+        $("#mi").css("display","block");
+        $("#mo").css("display","none");
     });
 
-    document.getElementById("order").addEventListener("click",function () {
-        document.getElementById("mc").style.display="none";
-        document.getElementById("mi").style.display="none";
-        document.getElementById("mo").style.display="block";
+    $("#order").click(function () {
+        $("#mc").css("display","none");
+        $("#mi").css("display","none");
+        $("#mo").css("display","block");
+    });
 
+    // Add Customer
+
+    // Select Button
+    $("#btnsaveCust").click(function () {
+
+        // remove all the row click events added before
+        $("#custTable>tr").off("click");
+
+
+        //gather customer information
+        let customerName = $("#custName").val();
+        let customerAddress = $("#custAddress").val();
+        let customerTP = $("#custSalary").val();
+
+        /*create a html row*/
+        let row = `<tr><td>${customerName}</td><td>${customerName}</td><td>${customerAddress}</td><td>${customerTP}</td></tr>`;
+
+        /*select the table body and append the row */
+        $("#custTable").append(row);
+
+
+
+        //bind the events to the table rows after the row was added
+        $("#custTable>tr").click(function () {
+            // this//dom object
+            // $(this);//jQuery object
+            $("#exampleModal").modal("show");
+
+            // $(this)//tr
+            // $(this).children(); //return all td inside selected row
+            let cusName = $(this).children(":eq(0)").text();
+            let cusAddress = $(this).children(":eq(1)").text();
+            let cusTP = $(this).children(":eq(2)").text();
+
+
+            // set values for the input fields
+            $("#custName").val(cusName);
+            $("#custAddress").val(cusAddress);
+            $("#custSalary").val(cusTP);
+
+        });
 
     });
 
 </script>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-        crossorigin="anonymous"></script>
 </body>
 </html>
