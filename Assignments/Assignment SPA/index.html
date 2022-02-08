@@ -40,6 +40,51 @@
     </nav>
 
 </header>
+<main id="mh">
+    <div id="carouselExampleCaptions" class="carousel slide w-50 position-absolute top-50 start-50 translate-middle" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="assets/imges/1.jpg" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>First slide label</h5>
+                    <p>Some representative placeholder content for the first slide.</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="assets/imges/2.jpg" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Second slide label</h5>
+                    <p>Some representative placeholder content for the second slide.</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="assets/imges/6.png" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Third slide label</h5>
+                    <p>Some representative placeholder content for the third slide.</p>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+
+
+
+
+</main>
 <main id="mc">
     <div>
         <h3 class="ps-4" style="font-family: Arial;">
@@ -114,7 +159,7 @@
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                         <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Renew</button>
-                        <button type="button" class="btn btn-success" id="btnsaveCust" >Save Customer</button>
+                        <button type="button" class="btn btn-success" id="btnsaveCust" data-bs-dismiss="modal">Save Customer</button>
                     </div>
                 </div>
             </div>
@@ -160,7 +205,7 @@
                 </section>
                 <section class="row mt-5">
                     <div class="col-11">
-                        <table class="table table-hover">
+                        <table class="table table-hover" id="itemTable">
                             <thead>
                             <tr style="background-color: #abffcb">
                                 <th scope="col">ID</th>
@@ -223,7 +268,7 @@
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                         <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Renew</button>
-                        <button type="button" class="btn btn-success">Save Item</button>
+                        <button type="button" class="btn btn-success" id="btnSaveItem" data-bs-dismiss="modal">Save Item</button>
                     </div>
                 </div>
             </div>
@@ -393,7 +438,8 @@
 <script src="assets/bootstrap/js/bootstrap.min.js"></script>
 <script src="assets/jQuerry/jquery-3.6.0.min.js"></script>
 <script>
-    $("#mc").css("display","block");
+    $("#mh").css("display","block");
+    $("#mc").css("display","none");
     $("#mi").css("display","none");
     $("#mo").css("display","none");
 
@@ -401,18 +447,28 @@
         $("#mc").css("display","block");
         $("#mi").css("display","none");
         $("#mo").css("display","none");
+        $("#mh").css("display","none");
     });
 
     $("#items").click(function () {
         $("#mc").css("display","none");
         $("#mi").css("display","block");
         $("#mo").css("display","none");
+        $("#mh").css("display","none");
     });
 
     $("#order").click(function () {
         $("#mc").css("display","none");
         $("#mi").css("display","none");
+        $("#mh").css("display","none");
         $("#mo").css("display","block");
+    });
+
+    $("#home").click(function () {
+        $("#mc").css("display","none");
+        $("#mi").css("display","none");
+        $("#mh").css("display","block");
+        $("#mo").css("display","none");
     });
 
     // Add Customer
@@ -421,7 +477,7 @@
     $("#btnsaveCust").click(function () {
 
         // remove all the row click events added before
-        $("#custTable>tr").off("click");
+        /*$("#custTable>tr").off("click");*/
 
 
         //gather customer information
@@ -441,6 +497,7 @@
         $("#custTable>tr").click(function () {
             // this//dom object
             // $(this);//jQuery object
+            jQuery.noConflict();
             $("#exampleModal").modal("show");
 
             // $(this)//tr
@@ -459,7 +516,48 @@
 
     });
 
-</script>
+    $("#btnSaveItem").click(function () {
 
+        // remove all the row click events added before
+        /*$("#custTable>tr").off("click");*/
+
+
+        //gather customer information
+        let itemName = $("#itemName").val();
+        let qty = $("#QTY1").val();
+        let price = $("#price1").val();
+
+        /*create a html row*/
+        let row = `<tr><td>${itemName}</td><td>${itemName}</td><td>${qty}</td><td>${price}</td></tr>`;
+
+        /*select the table body and append the row */
+        $("#itemTable").append(row);
+
+
+
+        //bind the events to the table rows after the row was added
+        $("#itemTable>tr").click(function () {
+            // this//dom object
+            // $(this);//jQuery object
+            jQuery.noConflict();
+            $("#newitem").modal("show");
+
+            // $(this)//tr
+            // $(this).children(); //return all td inside selected row
+            let itemName = $(this).children(":eq(0)").text();
+            let qty = $(this).children(":eq(1)").text();
+            let price = $(this).children(":eq(2)").text();
+
+
+            // set values for the input fields
+            $("#itemName").val(itemName);
+            $("#QTY1").val(qty);
+            $("#price1").val(price);
+
+        });
+
+    });
+
+</script>
 </body>
 </html>
