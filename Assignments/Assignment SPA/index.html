@@ -41,11 +41,15 @@
 
 </header>
 <main id="mh">
-    <div id="carouselExampleCaptions" class="carousel slide w-50 position-absolute top-50 start-50 translate-middle" data-bs-ride="carousel">
+    <div id="carouselExampleCaptions" class="carousel slide w-50 position-absolute top-50 start-50 translate-middle"
+         data-bs-ride="carousel">
         <div class="carousel-indicators">
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+                    aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                    aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+                    aria-label="Slide 3"></button>
         </div>
         <div class="carousel-inner">
             <div class="carousel-item active">
@@ -70,18 +74,17 @@
                 </div>
             </div>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+                data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Previous</span>
         </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+                data-bs-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
         </button>
     </div>
-
-
-
 
 
 </main>
@@ -94,30 +97,58 @@
     </div>
 
     <section class="container-fluid">
-        <section class="row mt-3">
-            <div class="col-6">
+        <section class="row">
+            <div class="col-5 mt-5">
                 <img src="assets/imges/customerbg.jpg" class="img-fluid" alt="">
             </div>
-            <div class="col-6 ps-5">
-                <section class="row mt-3">
-                    <div class="col-8">
+            <div class="col-7">
+                <section class="row">
+                    <div class="col-3">
                         <form>
-                            <div class="mb-3">
+                            <div>
                                 <label for="exampleInputEmail" class="form-label">Search Customer</label>
                                 <input type="email" class="form-control" id="exampleInputEmail"
                                        aria-describedby="emailHelp" placeholder="Name/NIC">
-                                <div id="emailHelp1" class="form-text">Enter customer name or NIC to search customer.
-                                </div>
                             </div>
-                            <button type="submit" class="btn btn-danger">Delete</button>
+                            <!--<button type="submit" class="btn btn-danger">Delete</button>
                             <button type="submit" class="btn btn-primary">Clear</button>
-                            <button class="btn btn-outline-info ms-3" data-bs-toggle="modal" data-bs-target="#exampleModal" type="button">New Customer</button>
+                            <button class="btn btn-outline-info ms-3" data-bs-toggle="modal" data-bs-target="#exampleModal" type="button">New Customer</button>-->
                         </form>
                     </div>
                     <div class="col-2 mt-3 pt-3 ps-2">
                         <button type="submit" class="btn btn-outline-success">Search</button>
                     </div>
                 </section>
+
+                <section class="row mt-4">
+                    <div class="col-3">
+                        <h5>CustomerID : </h5>
+                    </div>
+                    <div class="col-2 ps-sm-4">
+                        <h5>C00-001</h5>
+                    </div>
+                </section>
+                <section class="row mt-1">
+                    <div class="col-6">
+                        <label for="exampleInputEmail" class="form-label">Customer Name</label>
+                        <input type="email" class="form-control" id="txtCustName"
+                               aria-describedby="emailHelp" placeholder="Name">
+                    </div>
+                    <div class="col-5">
+                        <label for="exampleInputEmail" class="form-label">Customer Salary</label>
+                        <input type="email" class="form-control" id="txtCustSalary"
+                               aria-describedby="emailHelp" placeholder="Salary">
+                    </div>
+                </section>
+
+                <section class="row">
+                    <div class="col-8">
+                        <label for="exampleInputEmail" class="form-label">Customer Address</label>
+                        <input type="email" class="form-control" id="txtCustAddress"
+                               aria-describedby="emailHelp" placeholder="Name">
+                    </div>
+                </section>
+
                 <section class="row mt-5">
                     <div class="col-11">
                         <table class="table table-hover" id="custTable">
@@ -159,14 +190,14 @@
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                         <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Renew</button>
-                        <button type="button" class="btn btn-success" id="btnsaveCust" data-bs-dismiss="modal">Save Customer</button>
+                        <button type="button" class="btn btn-success" id="btnsaveCust" data-bs-dismiss="modal">Save
+                            Customer
+                        </button>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
-
 
 
 </main>
@@ -196,7 +227,9 @@
                             </div>
                             <button type="submit" class="btn btn-danger">Delete</button>
                             <button type="submit" class="btn btn-primary">Clear</button>
-                            <button class="btn btn-outline-info ms-3" data-bs-toggle="modal" data-bs-target="#newitem" type="button">New Item</button>
+                            <button class="btn btn-outline-info ms-3" data-bs-toggle="modal" data-bs-target="#newitem"
+                                    type="button">New Item
+                            </button>
                         </form>
                     </div>
                     <div class="col-2 mt-3 pt-3 ps-2">
@@ -268,7 +301,9 @@
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                         <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Renew</button>
-                        <button type="button" class="btn btn-success" id="btnSaveItem" data-bs-dismiss="modal">Save Item</button>
+                        <button type="button" class="btn btn-success" id="btnSaveItem" data-bs-dismiss="modal">Save
+                            Item
+                        </button>
                     </div>
                 </div>
             </div>
@@ -438,37 +473,37 @@
 <script src="assets/bootstrap/js/bootstrap.min.js"></script>
 <script src="assets/jQuerry/jquery-3.6.0.min.js"></script>
 <script>
-    $("#mh").css("display","block");
-    $("#mc").css("display","none");
-    $("#mi").css("display","none");
-    $("#mo").css("display","none");
+    $("#mh").css("display", "block");
+    $("#mc").css("display", "none");
+    $("#mi").css("display", "none");
+    $("#mo").css("display", "none");
 
     $("#customers").click(function () {
-        $("#mc").css("display","block");
-        $("#mi").css("display","none");
-        $("#mo").css("display","none");
-        $("#mh").css("display","none");
+        $("#mc").css("display", "block");
+        $("#mi").css("display", "none");
+        $("#mo").css("display", "none");
+        $("#mh").css("display", "none");
     });
 
     $("#items").click(function () {
-        $("#mc").css("display","none");
-        $("#mi").css("display","block");
-        $("#mo").css("display","none");
-        $("#mh").css("display","none");
+        $("#mc").css("display", "none");
+        $("#mi").css("display", "block");
+        $("#mo").css("display", "none");
+        $("#mh").css("display", "none");
     });
 
     $("#order").click(function () {
-        $("#mc").css("display","none");
-        $("#mi").css("display","none");
-        $("#mh").css("display","none");
-        $("#mo").css("display","block");
+        $("#mc").css("display", "none");
+        $("#mi").css("display", "none");
+        $("#mh").css("display", "none");
+        $("#mo").css("display", "block");
     });
 
     $("#home").click(function () {
-        $("#mc").css("display","none");
-        $("#mi").css("display","none");
-        $("#mh").css("display","block");
-        $("#mo").css("display","none");
+        $("#mc").css("display", "none");
+        $("#mi").css("display", "none");
+        $("#mh").css("display", "block");
+        $("#mo").css("display", "none");
     });
 
     // Add Customer
@@ -490,7 +525,6 @@
 
         /*select the table body and append the row */
         $("#custTable").append(row);
-
 
 
         //bind the events to the table rows after the row was added
@@ -532,7 +566,6 @@
 
         /*select the table body and append the row */
         $("#itemTable").append(row);
-
 
 
         //bind the events to the table rows after the row was added
