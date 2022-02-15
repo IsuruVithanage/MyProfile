@@ -614,10 +614,12 @@
     $("#mo").css("display", "none");
 
     $("#customers").click(function () {
+
         $("#mc").css("display", "block");
         $("#mi").css("display", "none");
         $("#mo").css("display", "none");
         $("#mh").css("display", "none");
+        generateCustID();
     });
 
     $("#items").click(function () {
@@ -625,6 +627,7 @@
         $("#mi").css("display", "block");
         $("#mo").css("display", "none");
         $("#mh").css("display", "none");
+        generateItemID();
     });
 
     $("#order").click(function () {
@@ -651,6 +654,7 @@
             saveCustomer();
             clearAllCustTxt();
             loadAllCustomers();
+            generateCustID();
 
         });
 
@@ -726,6 +730,28 @@
         }
     }
 
+    //Genereate Customer ID
+    function generateCustID() {
+        if (customerDB.length!==0) {
+            let id = customerDB[(customerDB.length)-1].id;
+            const txt = id.split('C', 2);
+            let newcustID=parseInt(txt[1])+1;
+            console.log(newcustID);
+
+            if (newcustID<=9){
+                $("#txtCustID").text("C00"+newcustID);
+            }else if (newcustID<=99){
+                $("#txtCustID").text("C0"+newcustID);
+            }else if (newcustID<=999){
+                $("#txtCustID").text("C"+newcustID);
+            }
+
+        } else {
+            $("#txtCustID").text("C001");
+        }
+
+    }
+
 
 
     //Item-------------------------------
@@ -739,7 +765,7 @@
             saveItem();
             clearAllItemTxt();
             loadAllItems();
-            console.log(itemDB[0].id);
+            generateItemID();
 
         });
 
@@ -809,19 +835,31 @@
 
     function searchItem(id) {
         for (let i = 0; i < itemDB.length; i++) {
-            if (itemDB[i].id == id) {
+            if (itemDB[i].id === id) {
                 return itemDB[i];
             }
         }
     }
 
-    function generateID() {
-        if (rst.next()) {
-            let id = itemDB[itemDB.length-1].id;
-            let newCustomerId = Integer.parseInt(id.replace("C", "")) + 1;
-            return String.format("C%03d", newCustomerId);
+    //Genereate Item ID
+    function generateItemID() {
+        if (itemDB.length!==0) {
+            let id = itemDB[(itemDB.length)-1].id;
+            const txt = id.split('I', 2);
+            console.log(txt);
+            let newID=parseInt(txt[1])+1;
+            console.log(newID);
+
+            if (newID<=9){
+                $("#txtItemID").text("I00"+newID);
+            }else if (newID<=99){
+                $("#txtItemID").text("I0"+newID);
+            }else if (newID<=999){
+                $("#txtItemID").text("I"+newID);
+            }
+
         } else {
-            return "C001";
+            $("#txtItemID").text("I001");
         }
 
     }
