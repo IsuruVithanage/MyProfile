@@ -89,6 +89,7 @@
 
 </main>
 <main id="mc">
+    <!--Customer Title-->
     <div>
         <h3 class="ps-4" style="font-family: Arial;">
             <img src="assets/imges/cust.png" alt="" width="33" height="33" class="d-inline-block align-text-top">
@@ -96,59 +97,78 @@
         </h3>
     </div>
 
+    <!--Content-->
     <section class="container-fluid">
         <section class="row">
+            <!--Image-->
             <div class="col-5 mt-5">
                 <img src="assets/imges/customerbg.jpg" class="img-fluid" alt="">
             </div>
+
+            <!--Fields-->
             <div class="col-7">
                 <section class="row">
+                    <!--Search-->
                     <div class="col-3">
                         <form>
                             <div>
-                                <label for="exampleInputEmail" class="form-label">Search Customer</label>
-                                <input type="email" class="form-control" id="exampleInputEmail"
-                                       aria-describedby="emailHelp" placeholder="Name/NIC">
+                                <label for="txtSearchCust" class="form-label">Search Customer</label>
+                                <input type="email" class="form-control" id="txtSearchCust"
+                                       aria-describedby="emailHelp" placeholder="ID">
                             </div>
-                            <!--<button type="submit" class="btn btn-danger">Delete</button>
-                            <button type="submit" class="btn btn-primary">Clear</button>
-                            <button class="btn btn-outline-info ms-3" data-bs-toggle="modal" data-bs-target="#exampleModal" type="button">New Customer</button>-->
                         </form>
                     </div>
+
+                    <!--Search Button-->
                     <div class="col-2 mt-3 pt-3 ps-2">
-                        <button type="submit" class="btn btn-outline-success">Search</button>
+                        <button type="submit" class="btn btn-outline-success" id="btnSearchCust">Search</button>
                     </div>
                 </section>
 
+                <!--Customer ID-->
                 <section class="row mt-4">
-                    <div class="col-3">
-                        <h5>CustomerID : </h5>
+                    <div class="col-2">
+                        <h5 style="color: #87de9b">CustomerID: </h5>
                     </div>
-                    <div class="col-2 ps-sm-4">
-                        <h5>C00-001</h5>
+
+                    <div class="col-2 ps-0">
+                        <h5 id="txtCustID">C00-001</h5>
                     </div>
                 </section>
+
                 <section class="row mt-1">
+                    <!--CustName-->
                     <div class="col-6">
-                        <label for="exampleInputEmail" class="form-label">Customer Name</label>
+                        <label for="txtCustName" class="form-label">Customer Name</label>
                         <input type="email" class="form-control" id="txtCustName"
                                aria-describedby="emailHelp" placeholder="Name">
                     </div>
+
+                    <!--CustSalary-->
                     <div class="col-5">
-                        <label for="exampleInputEmail" class="form-label">Customer Salary</label>
+                        <label for="txtCustSalary" class="form-label">Customer Salary</label>
                         <input type="email" class="form-control" id="txtCustSalary"
                                aria-describedby="emailHelp" placeholder="Salary">
                     </div>
                 </section>
 
                 <section class="row">
-                    <div class="col-8">
-                        <label for="exampleInputEmail" class="form-label">Customer Address</label>
+                    <!--CustAddress-->
+                    <div class="col-6">
+                        <label for="txtCustAddress" class="form-label">Customer Address</label>
                         <input type="email" class="form-control" id="txtCustAddress"
                                aria-describedby="emailHelp" placeholder="Name">
                     </div>
+
+                    <!--Buttons-->
+                    <div class="col-6 mt-4 pt-2">
+                        <button type="submit" class="btn btn-danger" id="btnDeleteCust">Delete</button>
+                        <button type="submit" class="btn btn-primary" id="btnClearCust">Clear</button>
+                        <button class="btn btn-outline-info ms-3" type="button" id="btnSaveCust">Save Customer</button>
+                    </div>
                 </section>
 
+                <!--Table-->
                 <section class="row mt-5">
                     <div class="col-11">
                         <table class="table table-hover" id="custTable">
@@ -168,35 +188,6 @@
                 </section>
             </div>
         </section>
-        <!-- Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header bg-success">
-                        <h5 class="modal-title" id="exampleModalLabel2" style="color: white">New Customer</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <label for="exampleInputEmail" class="form-label">Name</label>
-                        <input type="email" class="form-control" id="custName"
-                               aria-describedby="emailHelp" placeholder="Name">
-                        <label for="exampleInputEmail" class="form-label mt-3">Address</label>
-                        <input type="email" class="form-control" id="custAddress"
-                               aria-describedby="emailHelp" placeholder="Address">
-                        <label for="exampleInputEmail" class="form-label mt-3">Salary</label>
-                        <input type="email" class="form-control" id="custSalary"
-                               aria-describedby="emailHelp" placeholder="Salary">
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Renew</button>
-                        <button type="button" class="btn btn-success" id="btnsaveCust" data-bs-dismiss="modal">Save
-                            Customer
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
     </section>
 
 
