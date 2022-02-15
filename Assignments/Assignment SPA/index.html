@@ -91,8 +91,8 @@
 <main id="mc">
     <!--Customer Title-->
     <div>
-        <h3 class="ps-4" style="font-family: Arial;">
-            <img src="assets/imges/cust.png" alt="" width="33" height="33" class="d-inline-block align-text-top">
+        <h3 class="ps-4" style="font-family: Arial">
+            <img src="assets/imges/cust.png" alt="" width="34" height="34" class="d-inline-block align-text-top">
             Customers
         </h3>
     </div>
@@ -219,12 +219,12 @@
 <main id="mi">
     <div>
         <h3 class="ps-4" style="font-family: Arial;">
-            <img src="assets/imges/items.png" alt="" width="33" height="33" class="d-inline-block align-text-top">
+            <img src="assets/imges/item.png" alt="" width="33" height="33" class="d-inline-block align-text-top">
             Items
         </h3>
     </div>
 
-    <section class="container-fluid">
+    <!--<section class="container-fluid">
         <section class="row mt-3">
             <div class="col-6">
                 <img src="assets/imges/fod.jpg" class="img-fluid" alt="">
@@ -294,7 +294,7 @@
                 </section>
             </div>
         </section>
-        <!-- Modal -->
+        &lt;!&ndash; Modal &ndash;&gt;
         <div class="modal fade" id="newitem" tabindex="-1" aria-labelledby="newitem" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -323,6 +323,124 @@
                 </div>
             </div>
         </div>
+    </section>-->
+
+    <!--Content-->
+    <section class="container-fluid">
+        <section class="row">
+            <!--Image-->
+            <div class="col-5 mt-5">
+                <img src="assets/imges/fod.jpg" class="img-fluid" alt="">
+            </div>
+
+            <!--Fields-->
+            <div class="col-7">
+                <section class="row">
+                    <!--Search-->
+                    <div class="col-3">
+                        <form>
+                            <div>
+                                <label for="txtSearchItem" class="form-label">Search Item</label>
+                                <input type="email" class="form-control" id="txtSearchItem"
+                                       aria-describedby="emailHelp" placeholder="ID">
+                            </div>
+                        </form>
+                    </div>
+
+                    <!--Search Button-->
+                    <div class="col-2 mt-3 pt-3 ps-2">
+                        <button type="submit" class="btn btn-outline-success" id="btnSearchItem">Search</button>
+                    </div>
+                </section>
+
+                <!--Item ID-->
+                <section class="row mt-4">
+                    <div class="col-1">
+                        <h5 style="color: #87de9b">ItemID: </h5>
+                    </div>
+
+                    <div class="col-2 ps-4">
+                        <h5 id="txtItemID">I00-001</h5>
+                    </div>
+                </section>
+
+                <section class="row mt-1">
+                    <!--ItemName-->
+                    <div class="col-6">
+                        <label for="txtItemName" class="form-label">Item Name</label>
+                        <input type="email" class="form-control" id="txtItemName"
+                               aria-describedby="emailHelp" placeholder="Name">
+                    </div>
+
+                    <!--QTY-->
+                    <div class="col-5">
+                        <label for="txtQTY" class="form-label">QTY</label>
+                        <input type="email" class="form-control" id="txtQTY"
+                               aria-describedby="emailHelp" placeholder="QTY">
+                    </div>
+                </section>
+
+                <section class="row">
+                    <!--Price-->
+                    <div class="col-6">
+                        <label for="txtPrice" class="form-label">Price</label>
+                        <input type="email" class="form-control" id="txtPrice"
+                               aria-describedby="emailHelp" placeholder="Price">
+                    </div>
+
+                    <!--Buttons-->
+                    <div class="col-6 mt-4 pt-2">
+                        <button type="submit" class="btn btn-danger" id="btnDeleteItem">Delete</button>
+                        <button type="submit" class="btn btn-primary" id="btnClearItem">Clear</button>
+                        <button class="btn btn-outline-info ms-3" type="button" id="btnSaveItem" data-bs-toggle="modal"
+                                data-bs-target="#sveItem">Save Item
+                        </button>
+                    </div>
+                </section>
+
+                <!--Table-->
+                <section class="row mt-5">
+                    <div class="col-11" style="overflow-y:auto;" data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-offset="0" class="scrollspy-example" tabindex="0">
+                        <table class="table table-hover" id="ItemTable" >
+                            <thead>
+                            <tr style="background-color: #abffcb">
+                                <th scope="col">ID</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">QTY</th>
+                                <th scope="col">Price</th>
+                            </tr>
+                            </thead>
+                            <tbody id="ItemTableBody">
+
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!--Confirmation modal-->
+                <div class="modal fade" id="sveItem" tabindex="-1" aria-labelledby="sveCust" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header bg-success">
+                                <h5 class="modal-title" id="ItemModalcolor: white" style="color: white">Confirm</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <p>Are you sure that you want to save this Item ?</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary" data-bs-dismiss="modal"
+                                        id="confirmSaveItem">Yes
+                                </button>
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
     </section>
 </main>
 <main id="mo">
@@ -523,7 +641,7 @@
         $("#mo").css("display", "none");
     });
 
-    //Customer
+    //Customer----------------------------------------
     // Save Customer Button
     $("#btnSaveCust").click(function () {
 
@@ -609,45 +727,104 @@
     }
 
 
+
+    //Item-------------------------------
     //Save Item
+    // Save Item Button
     $("#btnSaveItem").click(function () {
-        // remove all the row click events added before
-        /*$("#custTable>tr").off("click");*/
 
-        //gather customer information
-        let itemName = $("#itemName").val();
-        let qty = $("#QTY1").val();
-        let price = $("#price1").val();
+        $("#confirmSaveItem").off("click");
 
-        /*create a html row*/
-        let row = `<tr><td>${itemName}</td><td>${itemName}</td><td>${qty}</td><td>${price}</td></tr>`;
-
-        /*select the table body and append the row */
-        $("#itemTable").append(row);
-
-
-        //bind the events to the table rows after the row was added
-        $("#itemTable>tr").click(function () {
-            // this//dom object
-            // $(this);//jQuery object
-            jQuery.noConflict();
-            $("#newitem").modal("show");
-
-            // $(this)//tr
-            // $(this).children(); //return all td inside selected row
-            let itemName = $(this).children(":eq(0)").text();
-            let qty = $(this).children(":eq(1)").text();
-            let price = $(this).children(":eq(2)").text();
-
-
-            // set values for the input fields
-            $("#itemName").val(itemName);
-            $("#QTY1").val(qty);
-            $("#price1").val(price);
+        $("#confirmSaveItem").click(function () {
+            saveItem();
+            clearAllItemTxt();
+            loadAllItems();
+            console.log(itemDB[0].id);
 
         });
 
     });
+
+    // Clear Item Button
+    $("#btnClearItem").click(function () {
+        clearAllItemTxt();
+
+    });
+
+    /*Clear the text fields*/
+    function clearAllItemTxt() {
+        $('#txtItemName,#txtQTY,#txtPrice').val("");
+        /*$('#txtCusID,#txtCusName,#txtCusAddress,#txtCusSalary').css('border', '2px solid #ced4da');
+        $('#txtCusID').focus();
+        $("#btnCustomer").attr('disabled', true);
+        loadAllCustomers();
+        $("#lblcusid,#lblcusname,#lblcusaddress,#lblcussalary").text("");*/
+    }
+
+    /*Save Item*/
+    function saveItem() {
+        //gather Item information
+        let itemID = $("#txtItemID").text();
+        let itemName = $("#txtItemName").val();
+        let QTY = $("#txtQTY").val();
+        let price = $("#txtPrice").val();
+
+        //create Object
+        var itemObject = {
+            id: itemID,
+            name: itemName,
+            qty: QTY,
+            price: price
+        };
+
+        itemDB.push(itemObject);
+    }
+
+    /*Display Item in the Table*/
+    function loadAllItems() {
+        $("#ItemTableBody").empty();
+        for (var i of itemDB) {
+            /*create a html row*/
+            let row = `<tr><td>${i.id}</td><td>${i.name}</td><td>${i.qty}</td><td>${i.price}</td></tr>`;
+            /*select the table body and append the row */
+            $("#ItemTableBody").append(row);
+        }
+    }
+
+    // search Item
+    $("#btnSearchItem").click(function () {
+        var searchID = $("#txtSearchItem").val();
+
+        var response = searchItem(searchID);
+        if (response) {
+            $("#txtItemID").val(response.id);
+            $("#txtItemName").val(response.name);
+            $("#txtQTY").val(response.qty);
+            $("#txtPrice").val(response.price);
+        }else{
+            clearAllItemTxt();
+            alert("No Such a Item");
+        }
+    });
+
+    function searchItem(id) {
+        for (let i = 0; i < itemDB.length; i++) {
+            if (itemDB[i].id == id) {
+                return itemDB[i];
+            }
+        }
+    }
+
+    function generateID() {
+        if (rst.next()) {
+            let id = itemDB[itemDB.length-1].id;
+            let newCustomerId = Integer.parseInt(id.replace("C", "")) + 1;
+            return String.format("C%03d", newCustomerId);
+        } else {
+            return "C001";
+        }
+
+    }
 
 </script>
 </body>
