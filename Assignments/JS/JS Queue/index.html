@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <title>Java Script Queue</title>
     <style>
-        body{
+        body {
             background-color: #adadae;
             height: 100vh;
         }
 
-        body>h2{
+        body > h2 {
             color: white;
             font-size: 30px;
             font-family: 'B612', sans-serif;
@@ -18,7 +18,7 @@
             position: relative;
         }
 
-        body>div:nth-child(2){
+        body > div:nth-child(2) {
             background-color: white;
             width: 788px;
             position: absolute;
@@ -27,7 +27,7 @@
             left: 265px;
         }
 
-        body>div:nth-child(3){
+        body > div:nth-child(3) {
             background-color: white;
             width: 788px;
             position: absolute;
@@ -36,49 +36,48 @@
             left: 265px;
         }
 
-        .box{
+        .box {
             width: 122px;
             height: 65px;
             border-radius: 12px;
             position: absolute;
         }
 
-        #d1{
+        #d1 {
             background-color: red;
             left: 270px;
             top: 247px;
         }
 
-        #d2{
+        #d2 {
             background-color: green;
             left: 405px;
             top: 358px;
         }
 
-        #d3{
+        #d3 {
             background-color: blue;
             left: 538px;
             top: 358px;
         }
 
-        #d4{
+        #d4 {
             background-color: yellow;
             left: 671px;
             top: 358px;
         }
 
-        #d5{
+        #d5 {
             background-color: pink;
             left: 803px;
             top: 358px;
         }
 
-        #d6{
+        #d6 {
             background-color: mediumpurple;
             left: 936px;
             top: 474px;
         }
-
 
 
     </style>
@@ -95,6 +94,84 @@
 <div id="d5" class="box"></div>
 <div id="d6" class="box"></div>
 
+<script src="js/jquery-3.6.0.min.js"></script>
+<script>
 
+    function animation1() {
+        let c1 = $("#d1").css("background-color");
+        let c2 = $("#d2").css("background-color");
+        let c3 = $("#d3").css("background-color");
+        let c4 = $("#d4").css("background-color");
+        let c5 = $("#d5").css("background-color");
+        let c6 = $("#d6").css("background-color");
+
+        $("#d1").css("background-color", c6);
+        $("#d2").css("background-color", c1);
+        $("#d3").css("background-color", c2);
+        $("#d4").css("background-color", c3);
+        $("#d5").css("background-color", c4);
+        $("#d6").css("background-color", c5);
+
+    }
+
+    function animation2() {
+        $("#d1").css("background-color", "pink");
+        $("#d2").css("background-color", "mediumpurple");
+        $("#d3").css("background-color", "red");
+        $("#d4").css("background-color", "green");
+        $("#d5").css("background-color", "blue");
+        $("#d6").css("background-color", "yellow");
+    }
+
+    function animation3() {
+        $("#d1").css("background-color", "yellow");
+        $("#d2").css("background-color", "pink");
+        $("#d3").css("background-color", "mediumpurple");
+        $("#d4").css("background-color", "red");
+        $("#d5").css("background-color", "green");
+        $("#d6").css("background-color", "blue");
+    }
+
+    function animation4() {
+        $("#d1").css("background-color", "blue");
+        $("#d2").css("background-color", "yellow");
+        $("#d3").css("background-color", "pink");
+        $("#d4").css("background-color", "mediumpurple");
+        $("#d5").css("background-color", "red");
+        $("#d6").css("background-color", "green");
+    }
+
+    function animation5() {
+        $("#d1").css("background-color", "green");
+        $("#d2").css("background-color", "blue");
+        $("#d3").css("background-color", "yellow");
+        $("#d4").css("background-color", "pink");
+        $("#d5").css("background-color", "mediumpurple");
+        $("#d6").css("background-color", "red");
+    }
+
+    function animation6() {
+        $("#d1").css("background-color", "red");
+        $("#d2").css("background-color", "green");
+        $("#d3").css("background-color", "blue");
+        $("#d4").css("background-color", "yellow");
+        $("#d5").css("background-color", "pink");
+        $("#d6").css("background-color", "mediumpurple");
+    }
+
+    let timer;
+
+    setInterval(animation1, 1000);
+
+    function start() {
+        setTimeout(animation1, 1000);
+        setTimeout(animation2, 2000);
+        setTimeout(animation3, 3000);
+        setTimeout(animation4, 4000);
+        setTimeout(animation5, 5000);
+        setTimeout(animation6, 6000);
+    }
+
+</script>
 </body>
 </html>
