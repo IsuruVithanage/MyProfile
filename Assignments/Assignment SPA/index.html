@@ -227,107 +227,6 @@
         </h3>
     </div>
 
-    <!--<section class="container-fluid">
-        <section class="row mt-3">
-            <div class="col-6">
-                <img src="assets/imges/fod.jpg" class="img-fluid" alt="">
-            </div>
-            <div class="col-6 ps-5">
-                <section class="row mt-3">
-                    <div class="col-8">
-                        <form>
-                            <div class="mb-3">
-                                <label for="exampleInputEmail2" class="form-label">Search Item</label>
-                                <input type="email" class="form-control" id="exampleInputEmail2"
-                                       aria-describedby="emailHelp" placeholder="Name/ID">
-                                <div id="emailHelp" class="form-text">Enter item name or ID to search Item.
-                                </div>
-                            </div>
-                            <button type="submit" class="btn btn-danger">Delete</button>
-                            <button type="submit" class="btn btn-primary">Clear</button>
-                            <button class="btn btn-outline-info ms-3" data-bs-toggle="modal" data-bs-target="#newitem"
-                                    type="button">New Item
-                            </button>
-                        </form>
-                    </div>
-                    <div class="col-2 mt-3 pt-3 ps-2">
-                        <button type="submit" class="btn btn-outline-success">Search</button>
-                    </div>
-                </section>
-                <section class="row mt-5">
-                    <div class="col-11">
-                        <table class="table table-hover" id="itemTable">
-                            <thead>
-                            <tr style="background-color: #abffcb">
-                                <th scope="col">ID</th>
-                                <th scope="col">Name</th>
-                                <th scope="col">QTY</th>
-                                <th scope="col">Price</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <th scope="row">I001</th>
-                                <td>Potato</td>
-                                <td>20</td>
-                                <td>23</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">I001</th>
-                                <td>Potato</td>
-                                <td>20</td>
-                                <td>23</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">I001</th>
-                                <td>Potato</td>
-                                <td>20</td>
-                                <td>23</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">I001</th>
-                                <td>Potato</td>
-                                <td>20</td>
-                                <td>23</td>
-                            </tr>
-
-                            </tbody>
-                        </table>
-                    </div>
-                </section>
-            </div>
-        </section>
-        &lt;!&ndash; Modal &ndash;&gt;
-        <div class="modal fade" id="newitem" tabindex="-1" aria-labelledby="newitem" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header bg-success">
-                        <h5 class="modal-title" id="exampleModalLabel" style="color: white">New Item</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <label for="exampleInputEmail2" class="form-label">Name</label>
-                        <input type="email" class="form-control" id="itemName"
-                               aria-describedby="emailHelp" placeholder="Name">
-                        <label for="exampleInputEmail2" class="form-label mt-3">QTY</label>
-                        <input type="email" class="form-control" id="QTY1"
-                               aria-describedby="emailHelp" placeholder="QTY">
-                        <label for="exampleInputEmail2" class="form-label mt-3">Price</label>
-                        <input type="email" class="form-control" id="price1"
-                               aria-describedby="emailHelp" placeholder="Price">
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Renew</button>
-                        <button type="button" class="btn btn-success" id="btnSaveItem" data-bs-dismiss="modal">Save
-                            Item
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>-->
-
     <!--Content-->
     <section class="container-fluid">
         <section class="row">
@@ -373,6 +272,7 @@
                         <label for="txtItemName" class="form-label">Item Name</label>
                         <input type="email" class="form-control" id="txtItemName"
                                aria-describedby="emailHelp" placeholder="Name">
+                        <p><small class="text-danger pl-1" id="lblItemName"></small></p>
                     </div>
 
                     <!--QTY-->
@@ -380,6 +280,7 @@
                         <label for="txtQTY" class="form-label">QTY</label>
                         <input type="email" class="form-control" id="txtQTY"
                                aria-describedby="emailHelp" placeholder="QTY">
+                        <p><small class="text-danger pl-1" id="lblqty"></small></p>
                     </div>
                 </section>
 
@@ -389,6 +290,7 @@
                         <label for="txtPrice" class="form-label">Price</label>
                         <input type="email" class="form-control" id="txtPrice"
                                aria-describedby="emailHelp" placeholder="Price">
+                        <p><small class="text-danger pl-1" id="lblprice"></small></p>
                     </div>
 
                     <!--Buttons-->
@@ -793,12 +695,6 @@
 
     });
 
-   /* $("#txtCusName").on('keyup', function (eventOb) {
-        setButton();
-        if (eventOb.key == "Enter") {
-            checkIfValid();
-        }
-    });*/
 
     $("#txtCustAddress").on('keyup', function (eventOb) {
         setButton();
@@ -816,14 +712,6 @@
     // focusing events end
     $("#btnSaveCust").attr('disabled', true);
 
-    /*function clearAll() {
-        $('#txtCusID,#txtCusName,#txtCusAddress,#txtCusSalary').val("");
-        $('#txtCusID,#txtCusName,#txtCusAddress,#txtCusSalary').css('border', '2px solid #ced4da');
-        $('#txtCusID').focus();
-        $("#btnCustomer").attr('disabled', true);
-        loadAllCustomers();
-        $("#lblcusid,#lblcusname,#lblcusaddress,#lblcussalary").text("");
-    }*/
 
     function formValid() {
             var cusName = $("#txtCustName").val();
@@ -1010,6 +898,126 @@
         }
 
     }
+
+    //Customer validation started
+    // customer regular expressions
+    const itemNameRegEx = /^[A-z ]{5,20}$/;
+    const qtyRegEx = /^[0-9]{1,}$/;
+    const priceRegEx = /^[0-9]{1,}$/;
+
+
+    $('#txtItemName,#txtQTY,#txtPrice').on('keydown', function (eventOb) {
+        if (eventOb.key == "Tab") {
+            eventOb.preventDefault(); // stop execution of the button
+        }
+    });
+
+    $('#txtItemName,#txtQTY,#txtPrice').on('blur', function () {
+        formValid();
+    });
+
+    //focusing events
+    $("#txtItemName").on('keyup', function (eventOb) {
+        setButton();
+        if (eventOb.key == "Enter") {
+            checkIfValid();
+        }
+
+    });
+
+
+    $("#txtQTY").on('keyup', function (eventOb) {
+        setButton();
+        if (eventOb.key == "Enter") {
+            checkIfValid();
+        }
+    });
+
+    $("#txtPrice").on('keyup', function (eventOb) {
+        setButton();
+        if (eventOb.key == "Enter") {
+            checkIfValid();
+        }
+    });
+    // focusing events end
+    $("#btnSaveItem").attr('disabled', true);
+
+    /*function clearAll() {
+        $('#txtCusID,#txtCusName,#txtCusAddress,#txtCusSalary').val("");
+        $('#txtCusID,#txtCusName,#txtCusAddress,#txtCusSalary').css('border', '2px solid #ced4da');
+        $('#txtCusID').focus();
+        $("#btnCustomer").attr('disabled', true);
+        loadAllCustomers();
+        $("#lblcusid,#lblcusname,#lblcusaddress,#lblcussalary").text("");
+    }*/
+
+    function formValid() {
+        var itenName = $("#txtItemName").val();
+        if (itemNameRegEx.test(itenName)) {
+            $("#txtItemName").css('border', '2px solid green');
+            $("#lblItemName").text("");
+            var qty = $("#txtQTY").val();
+            if (qtyRegEx.test(qty)) {
+                var price = $("#txtPrice").val();
+                var resp = priceRegEx.test(price);
+                $("#txtQTY").css('border', '2px solid green');
+                $("#lblqty").text("");
+                if (resp) {
+                    $("#txtPrice").css('border', '2px solid green');
+                    $("#lblprice").text("");
+                    return true;
+                } else {
+                    $("#txtPrice").css('border', '2px solid red');
+                    $("#lblprice").text("Cus Salary is a required field : Pattern 100.00 or 100");
+                    return false;
+                }
+            } else {
+                $("#txtQTY").css('border', '2px solid red');
+                $("#lblqty").text("Cus Name is a required field : Mimum 7");
+                return false;
+            }
+        } else {
+            $("#txtItemName").css('border', '2px solid red');
+            $("#lblItemName").text("Cus Name is a required field : Mimimum 5, Max 20, Spaces Allowed");
+            return false;
+        }
+    }
+
+    function checkIfValid() {
+        var itemName = $("#txtItemName").val();
+        if (itemNameRegEx.test(itemName)) {
+            $("#txtQTY").focus();
+            var qty = $("#txtQTY").val();
+            if (qtyRegEx.test(qty)) {
+                $("#txtPrice").focus();
+                var price = $("#txtPrice").val();
+                var resp = priceRegEx.test(price);
+                if (resp) {
+
+                } else {
+                    $("#txtPrice").focus();
+                }
+            } else {
+                $("#txtQTY").focus();
+            }
+        } else {
+            $("#txtItemName").focus();
+        }
+    }
+
+    function setButton() {
+        let b = formValid();
+        if (b) {
+            $("#btnSaveItem").attr('disabled', false);
+        } else {
+            $("#btnSaveItem").attr('disabled', true);
+        }
+    }
+
+    $('#btnSaveItem').click(function () {
+        checkIfValid();
+    });
+    //validation ended
 
 </script>
 </body>
