@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript Knight Rider</title>
+    <style>
+        body {
+            background-color: black;
+            height: 100vh;
+        }
+
+        body > h2 {
+            color: red;
+            font-size: 30px;
+            font-family: 'B612', sans-serif;
+            text-align: center;
+            top: 70px;
+            position: relative;
+        }
+
+        body > div:nth-child(2) {
+            background-color: white;
+            width: 940px;
+            position: absolute;
+            height: 5px;
+            top: 265px;
+            left: 183px;
+        }
+
+        body>section{
+            width: 1000px;
+            border: white;
+            height: 100px;
+        }
+
+        body > div:nth-child(3) {
+            background-color: white;
+            width: 940px;
+            position: absolute;
+            height: 5px;
+            top: 387px;
+            left: 183px;
+        }
+
+        .box {
+            width: 122px;
+            height: 65px;
+            border-radius: 7px;
+            position: absolute;
+            top: 297px;
+        }
+
+        #d1 {
+            background-color: #ff0000;
+            left: 197px;
+
+        }
+
+        #d2 {
+            background-color: #ff2929;
+            left: 329px;
+
+        }
+
+        #d3 {
+            background-color: #ff4e4e;
+            left: 461px;
+
+        }
+
+        #d4 {
+            background-color: #fd7e7e;
+            left: 594px;
+
+        }
+
+        #d5 {
+            background-color: #ffafaf;
+            left: 726px;
+
+        }
+
+        #d6 {
+            background-color: #ffd1d1;
+            left: 860px;
+
+        }
+
+        #d7 {
+            background-color: #ffffff;
+            left: 994px;
+
+        }
+
+
+
+        button {
+            position: absolute;
+            width: 70px;
+            height: 30px;
+            background-color: black;
+            color: white;
+        }
+
+        #start {
+            left: 695px;
+            top: 589px;
+        }
+
+        #stop {
+            left: 618px;
+            top: 589px;
+            background-color: red;
+        }
+
+
+    </style>
+</head>
+<body>
+<h2>JavaScript Knight Rider</h2>
+<div></div>
+<div></div>
+
+<button id="stop">Stop</button>
+<button id="start">Start</button>
+<section>
+    <div id="d1" class="box"></div>
+    <div id="d2" class="box"></div>
+    <div id="d3" class="box"></div>
+    <div id="d4" class="box"></div>
+    <div id="d5" class="box"></div>
+    <div id="d6" class="box"></div>
+    <div id="d7" class="box"></div>
+</section>
+
+<script src="js/jquery-3.6.0.min.js"></script>
+<script>
+
+    function front() {
+        let c1 = $("#d1").css("background-color");
+        let c2 = $("#d2").css("background-color");
+        let c3 = $("#d3").css("background-color");
+        let c4 = $("#d4").css("background-color");
+        let c5 = $("#d5").css("background-color");
+        let c6 = $("#d6").css("background-color");
+        let c7 = $("#d7").css("background-color");
+
+        $("#d1").css("background-color", c2);
+        $("#d2").css("background-color", c3);
+        $("#d3").css("background-color", c4);
+        $("#d4").css("background-color", c5);
+        $("#d5").css("background-color", c6);
+        $("#d6").css("background-color", c7);
+        $("#d7").css("background-color", c1);
+
+    }
+
+    function back() {
+        let c1 = $("#d1").css("background-color");
+        let c2 = $("#d2").css("background-color");
+        let c3 = $("#d3").css("background-color");
+        let c4 = $("#d4").css("background-color");
+        let c5 = $("#d5").css("background-color");
+        let c6 = $("#d6").css("background-color");
+        let c7 = $("#d7").css("background-color");
+
+        $("#d1").css("background-color", c2);
+        $("#d2").css("background-color", c3);
+        $("#d3").css("background-color", c4);
+        $("#d4").css("background-color", c5);
+        $("#d5").css("background-color", c6);
+        $("#d6").css("background-color", c5);
+        $("#d7").css("background-color", c6);
+
+    }
+
+    let timer;
+
+    $("#start").click(function () {
+        timer = setInterval(front, 100);
+
+    });
+
+    $("#stop").click(function () {
+
+        clearInterval(timer);
+
+    });
+
+
+</script>
+</body>
+</html>
