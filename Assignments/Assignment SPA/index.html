@@ -187,6 +187,7 @@
                             </thead>
                             <tbody id="custTableBody">
 
+
                             </tbody>
                         </table>
                     </div>
@@ -512,6 +513,7 @@
 <script src="assets/bootstrap/js/bootstrap.min.js"></script>
 <script src="assets/jQuerry/jquery-3.6.0.min.js"></script>
 <script src="db/DB.js"></script>
+<script src="model/Customer.js"></script>
 <script>
     /*Changing Interfaces*/
     $("#mh").css("display", "block");
@@ -554,15 +556,26 @@
     // Save Customer Button
     $("#btnSaveCust").click(function () {
 
+        // remove all the row click events added before
+        $("#custTable>tr").off("click");
+
         $("#confirmSaveCust").off("click");
 
         $("#confirmSaveCust").click(function () {
-            saveCustomer();
-            clearAllCustTxt();
-            loadAllCustomers();
-            generateCustID();
+            if($("#btnSaveCust").text()=="Save Customer") {
+                saveCustomer();
+                clearAllCustTxt();
+                loadAllCustomers();
+                generateCustID();
+            }else {
+                clearAllCustTxt();
+                loadAllCustomers();
+                generateCustID();
+            }
+
 
         });
+
 
     });
 
@@ -581,6 +594,8 @@
         $("#btnSaveCust").attr('disabled', true);
         loadAllCustomers();
         $("#lblcusid,#lblcusname,#lblcusaddress,#lblcussalary").text("");
+        $("#btnSaveCust").html("Save Customer");
+        $("#btnSaveCust").attr("class","btn btn-outline-primary");
     }
 
     /*Save Customer*/
@@ -591,15 +606,30 @@
         let customerAddress = $("#txtCustAddress").val();
         let customerSalary = $("#txtCustSalary").val();
 
-        //create Object
-        var customerObject = {
-            id: customerID,
-            name: customerName,
-            address: customerAddress,
-            salary: customerSalary
-        };
+        if (isExists(customerID)){
+            for (var i in customerDB) {
+                if (customerID==i.id){
+                    i.setCustName=customerName;
+                    return;
+                }
+            }
 
-        customerDB.push(customerObject);
+        }else {
+            //create Object
+            var customerObject = new Customer(customerID, customerName, customerAddress, customerSalary);
+
+            customerDB.push(customerObject);
+        }
+    }
+
+    function isExists(id) {
+        for (var i of customerDB){
+            if (id==i.id){
+                return true;
+            }
+        }
+        return false;
+
     }
 
     /*Display customer in the Table*/
@@ -607,10 +637,28 @@
         $("#custTableBody").empty();
         for (var i of customerDB) {
             /*create a html row*/
-            let row = `<tr><td>${i.id}</td><td>${i.name}</td><td>${i.address}</td><td>${i.salary}</td></tr>`;
+            let row = `<tr><td>${i.getCustID()}</td><td>${i.getCustName()}</td><td>${i.getCustAddress()}</td><td>${i.getCustSalary()}</td></tr>`;
             /*select the table body and append the row */
             $("#custTableBody").append(row);
         }
+
+        //bind the events to the table rows after the row was added
+        $("#custTableBody>tr").click(function () {
+            let cusID= $(this).children(":eq(0)").text();
+            let cusName = $(this).children(":eq(1)").text();
+            let cusAddress = $(this).children(":eq(2)").text();
+            let cusTP = $(this).children(":eq(3)").text();
+
+            // set values for the input fields
+            $("#txtCustID").text(cusID);
+            $("#txtCustName").val(cusName);
+            $("#txtCustAddress").val(cusAddress);
+            $("#txtCustSalary").val(cusTP);
+
+            $("#btnSaveCust").html("Update Customer");
+            $("#btnSaveCust").attr("class","btn btn-outline-warning");
+
+        });
     }
 
     // search customer
@@ -673,14 +721,14 @@
     });
 
     $('#txtCustName,#txtCustAddress,#txtCustSalary').on('blur', function () {
-        formValid();
+        formCustValid();
     });
 
     //focusing events
     $("#txtCustName").on('keyup', function (eventOb) {
-        setButton();
+        setCustButton();
         if (eventOb.key == "Enter") {
-            checkIfValid();
+            checkIfCustValid();
         }
 
         if (eventOb.key == "Control") {
@@ -692,83 +740,82 @@
             $("#txtCustSalary").val(srcCustomer.getCustomerSalary());
         }
 
-
     });
 
 
     $("#txtCustAddress").on('keyup', function (eventOb) {
-        setButton();
+        setCustButton();
         if (eventOb.key == "Enter") {
-            checkIfValid();
+            checkIfCustValid();
         }
     });
 
     $("#txtCustSalary").on('keyup', function (eventOb) {
-        setButton();
+        setCustButton();
         if (eventOb.key == "Enter") {
-            checkIfValid();
+            checkIfCustValid();
         }
     });
     // focusing events end
     $("#btnSaveCust").attr('disabled', true);
 
 
-    function formValid() {
-            var cusName = $("#txtCustName").val();
-            if (cusNameRegEx.test(cusName)) {
-                $("#txtCustName").css('border', '2px solid green');
-                $("#lblcusname").text("");
-                var cusAddress = $("#txtCustAddress").val();
-                if (cusAddressRegEx.test(cusAddress)) {
-                    var cusSalary = $("#txtCustSalary").val();
-                    var resp = cusSalaryRegEx.test(cusSalary);
-                    $("#txtCustAddress").css('border', '2px solid green');
-                    $("#lblcusaddress").text("");
-                    if (resp) {
-                        $("#txtCustSalary").css('border', '2px solid green');
-                        $("#lblcussalary").text("");
-                        return true;
-                    } else {
-                        $("#txtCustSalary").css('border', '2px solid red');
-                        $("#lblcussalary").text("Cus Salary is a required field : Pattern 100.00 or 100");
-                        return false;
-                    }
+    function formCustValid() {
+        var cusName = $("#txtCustName").val();
+        if (cusNameRegEx.test(cusName)) {
+            $("#txtCustName").css('border', '2px solid green');
+            $("#lblcusname").text("");
+            var cusAddress = $("#txtCustAddress").val();
+            if (cusAddressRegEx.test(cusAddress)) {
+                var cusSalary = $("#txtCustSalary").val();
+                var resp = cusSalaryRegEx.test(cusSalary);
+                $("#txtCustAddress").css('border', '2px solid green');
+                $("#lblcusaddress").text("");
+                if (resp) {
+                    $("#txtCustSalary").css('border', '2px solid green');
+                    $("#lblcussalary").text("");
+                    return true;
                 } else {
-                    $("#txtCustAddress").css('border', '2px solid red');
-                    $("#lblcusaddress").text("Cus Name is a required field : Mimum 7");
+                    $("#txtCustSalary").css('border', '2px solid red');
+                    $("#lblcussalary").text("Cus Salary is a required field : Pattern 100.00 or 100");
                     return false;
                 }
             } else {
-                $("#txtCustName").css('border', '2px solid red');
-                $("#lblcusname").text("Cus Name is a required field : Mimimum 5, Max 20, Spaces Allowed");
+                $("#txtCustAddress").css('border', '2px solid red');
+                $("#lblcusaddress").text("Cus Address is a required field : Mimum 7");
                 return false;
             }
+        } else {
+            $("#txtCustName").css('border', '2px solid red');
+            $("#lblcusname").text("Cus Name is a required field : Mimimum 5, Max 20, Spaces Allowed");
+            return false;
+        }
     }
 
-    function checkIfValid() {
-            var cusName = $("#txtCustName").val();
-            if (cusNameRegEx.test(cusName)) {
-                $("#txtCustAddress").focus();
-                var cusAddress = $("#txtCustAddress").val();
-                if (cusAddressRegEx.test(cusAddress)) {
-                    $("#txtCustSalary").focus();
-                    var cusSalary = $("#txtCustSalary").val();
-                    var resp = cusSalaryRegEx.test(cusSalary);
-                    if (resp) {
+    function checkIfCustValid() {
+        var cusName = $("#txtCustName").val();
+        if (cusNameRegEx.test(cusName)) {
+            $("#txtCustAddress").focus();
+            var cusAddress = $("#txtCustAddress").val();
+            if (cusAddressRegEx.test(cusAddress)) {
+                $("#txtCustSalary").focus();
+                var cusSalary = $("#txtCustSalary").val();
+                var resp = cusSalaryRegEx.test(cusSalary);
+                if (resp) {
 
-                    } else {
-                        $("#txtCustSalary").focus();
-                    }
                 } else {
-                    $("#txtCustAddress").focus();
+                    $("#txtCustSalary").focus();
                 }
             } else {
-                $("#txtCustName").focus();
+                $("#txtCustAddress").focus();
             }
+        } else {
+            $("#txtCustName").focus();
+        }
     }
 
-    function setButton() {
-        let b = formValid();
+    function setCustButton() {
+        let b = formCustValid();
         if (b) {
             $("#btnSaveCust").attr('disabled', false);
         } else {
@@ -777,10 +824,9 @@
     }
 
     $('#btnSaveCust').click(function () {
-        checkIfValid();
+        checkIfCustValid();
     });
     //validation ended
-
 
 
     //Item-------------------------------
@@ -810,11 +856,11 @@
     /*Clear the text fields*/
     function clearAllItemTxt() {
         $('#txtItemName,#txtQTY,#txtPrice').val("");
-        /*$('#txtCusID,#txtCusName,#txtCusAddress,#txtCusSalary').css('border', '2px solid #ced4da');
+        $('#txtCusID,#txtCusName,#txtCusAddress,#txtCusSalary').css('border', '2px solid #ced4da');
         $('#txtCusID').focus();
         $("#btnCustomer").attr('disabled', true);
         loadAllCustomers();
-        $("#lblcusid,#lblcusname,#lblcusaddress,#lblcussalary").text("");*/
+        $("#lblcusid,#lblcusname,#lblcusaddress,#lblcussalary").text("");
     }
 
     /*Save Item*/
