@@ -165,7 +165,8 @@
 
                     <!--Buttons-->
                     <div class="col-6 mt-4 pt-2">
-                        <button type="submit" class="btn btn-danger" id="btnDeleteCust">Delete</button>
+                        <button type="button" class="btn btn-danger" id="btnDeleteCust" data-bs-toggle="modal"
+                                data-bs-target="#delCust">Delete</button>
                         <button type="submit" class="btn btn-primary" id="btnClearCust">Clear</button>
                         <button class="btn btn-outline-info ms-3" type="button" id="btnSaveCust" data-bs-toggle="modal"
                                 data-bs-target="#sveCust">Save Customer
@@ -193,7 +194,7 @@
                     </div>
                 </section>
 
-                <!--Confirmation modal-->
+                <!--Confirmation modal for save-->
                 <div class="modal fade" id="sveCust" tabindex="-1" aria-labelledby="sveCust" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
@@ -208,6 +209,28 @@
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-primary" data-bs-dismiss="modal"
                                         id="confirmSaveCust">Yes
+                                </button>
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--Confirmation modal for delete-->
+                <div class="modal fade" id="delCust" tabindex="-1" aria-labelledby="delCust" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header bg-danger">
+                                <h5 class="modal-title" id="delecustModalcolor: white" style="color: white">Confirm</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <p>Are you sure that you want to delete this Customer ?</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary" data-bs-dismiss="modal"
+                                        id="confirmdeleteCust">Yes
                                 </button>
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
                             </div>
@@ -562,27 +585,32 @@
         $("#confirmSaveCust").off("click");
 
         $("#confirmSaveCust").click(function () {
-            if($("#btnSaveCust").text()=="Save Customer") {
-                saveCustomer();
-                clearAllCustTxt();
-                loadAllCustomers();
-                generateCustID();
-            }else {
-                clearAllCustTxt();
-                loadAllCustomers();
-                generateCustID();
-            }
-
-
+            saveCustomer();
+            clearAllCustTxt();
+            loadAllCustomers();
+            generateCustID();
         });
-
-
     });
 
     // Clear Customer Button
     $("#btnClearCust").click(function () {
         clearAllCustTxt();
         generateCustID();
+
+    });
+
+    //Set Delete button
+    $("#btnDeleteCust").click(function () {
+        $("#confirmdeleteCust").off("click");
+
+        $("#confirmdeleteCust").click(function () {
+            deleteCustomer($("#txtCustID").text());
+            clearAllCustTxt();
+            loadAllCustomers();
+            generateCustID();
+
+        });
+
 
     });
 
@@ -607,28 +635,42 @@
         let customerSalary = $("#txtCustSalary").val();
 
         if (isExists(customerID)){
-            for (var i in customerDB) {
-                if (customerID==i.id){
-                    i.setCustName=customerName;
+            for (var i of customerDB) {
+                if (customerID===i.getCustID()){
+                    i.setCustName(customerName);
+                    i.setCustAddress(customerAddress);
+                    i.setCustSalary(customerSalary);
                     return;
                 }
             }
 
         }else {
             //create Object
+            /*console.log(true);*/
             var customerObject = new Customer(customerID, customerName, customerAddress, customerSalary);
-
             customerDB.push(customerObject);
         }
     }
 
+    //Check the
     function isExists(id) {
         for (var i of customerDB){
-            if (id==i.id){
+            if (id===i.getCustID()){
                 return true;
             }
         }
         return false;
+
+    }
+
+    /*Delete Customer*/
+    function deleteCustomer(id) {
+        for (var i of customerDB){
+            if (id===i.getCustID()){
+                customerDB.splice(i,1);
+                return;
+            }
+        }
 
     }
 
@@ -677,6 +719,7 @@
         }
     });
 
+    //Serach Customer
     function searchCustomer(id) {
         for (let i = 0; i < customerDB.length; i++) {
             if (customerDB[i].id == id) {
@@ -688,7 +731,7 @@
     //Genereate Customer ID
     function generateCustID() {
         if (customerDB.length !== 0) {
-            let id = customerDB[(customerDB.length) - 1].id;
+            let id = customerDB[(customerDB.length) - 1].getCustID();
             const txt = id.split('C', 2);
             let newcustID = parseInt(txt[1]) + 1;
             console.log(newcustID);
