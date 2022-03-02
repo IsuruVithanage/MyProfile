@@ -132,10 +132,10 @@ $("#btnSearchCust").click(function () {
 
     var response = searchCustomer(searchID);
     if (response) {
-        $("#txtCustID").text(response.id);
-        $("#txtCustName").val(response.name);
-        $("#txtCustAddress").val(response.address);
-        $("#txtCustSalary").val(response.salary);
+        $("#txtCustID").text(response.getCustID());
+        $("#txtCustName").val(response.getCustName());
+        $("#txtCustAddress").val(response.getCustAddress());
+        $("#txtCustSalary").val(response.getCustSalary());
     } else {
         clearAllCustTxt();
         alert("No Such a Customer");
@@ -145,7 +145,7 @@ $("#btnSearchCust").click(function () {
 //Serach Customer
 function searchCustomer(id) {
     for (let i = 0; i < customerDB.length; i++) {
-        if (customerDB[i].id == id) {
+        if (customerDB[i].getCustID() == id) {
             return customerDB[i];
         }
     }
@@ -197,14 +197,14 @@ $("#txtCustName").on('keyup', function (eventOb) {
         checkIfCustValid();
     }
 
-    if (eventOb.key == "Control") {
+    /*if (eventOb.key == "Control") {
         var typedCustomerID = $("#txtCustID").text();
         var srcCustomer = searchCustomerFromID(typedCustomerID);
         $("#txtCustID").text(srcCustomer.getCustomerID());
         $("#txtCustName").val(srcCustomer.getCustomerName());
         $("#txtCustAddress").val(srcCustomer.getCustomerAddress());
         $("#txtCustSalary").val(srcCustomer.getCustomerSalary());
-    }
+    }*/
 
 });
 
