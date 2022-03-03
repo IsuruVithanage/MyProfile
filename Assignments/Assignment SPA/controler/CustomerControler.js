@@ -72,6 +72,7 @@ function saveCustomer() {
         /*console.log(true);*/
         var customerObject = new Customer(customerID, customerName, customerAddress, customerSalary);
         customerDB.push(customerObject);
+
     }
 }
 

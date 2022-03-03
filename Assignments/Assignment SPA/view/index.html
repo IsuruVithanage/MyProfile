@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Green Market POS</title>
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
 </head>
@@ -12,7 +12,7 @@
     <nav class="navbar navbar-expand-lg navbar-light shadow p-3 mb-4 rounded" style="background-color: #e3fded;">
         <div class="container-fluid">
             <a class="navbar-brand fs-3" href="#" style="color: #00a305">
-                <img src="assets/imges/inlogo1.png" alt="" width="40" height="40" class="d-inline-block align-text-top">
+                <img src="../assets/imges/inlogo1.png" alt="" width="40" height="40" class="d-inline-block align-text-top">
                 Green Market POS
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -53,21 +53,21 @@
         </div>
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="assets/imges/1.jpg" class="d-block w-100" alt="...">
+                <img src="../assets/imges/1.jpg" class="d-block w-100" alt="...">
                 <div class="carousel-caption d-none d-md-block">
                     <h5>First slide label</h5>
                     <p>Some representative placeholder content for the first slide.</p>
                 </div>
             </div>
             <div class="carousel-item">
-                <img src="assets/imges/2.jpg" class="d-block w-100" alt="...">
+                <img src="../assets/imges/2.jpg" class="d-block w-100" alt="...">
                 <div class="carousel-caption d-none d-md-block">
                     <h5>Second slide label</h5>
                     <p>Some representative placeholder content for the second slide.</p>
                 </div>
             </div>
             <div class="carousel-item">
-                <img src="assets/imges/6.png" class="d-block w-100" alt="...">
+                <img src="../assets/imges/6.png" class="d-block w-100" alt="...">
                 <div class="carousel-caption d-none d-md-block">
                     <h5>Third slide label</h5>
                     <p>Some representative placeholder content for the third slide.</p>
@@ -92,7 +92,7 @@
     <!--Customer Title-->
     <div>
         <h3 class="ps-4" style="font-family: Arial">
-            <img src="assets/imges/cust.png" alt="" width="34" height="34" class="d-inline-block align-text-top">
+            <img src="../assets/imges/cust.png" alt="" width="34" height="34" class="d-inline-block align-text-top">
             Customers
         </h3>
     </div>
@@ -102,7 +102,7 @@
         <section class="row">
             <!--Image-->
             <div class="col-5 mt-5">
-                <img src="assets/imges/customerbg.jpg" class="img-fluid" alt="">
+                <img src="../assets/imges/customerbg.jpg" class="img-fluid" alt="">
             </div>
 
             <!--Fields-->
@@ -246,7 +246,7 @@
 <main id="mi">
     <div>
         <h3 class="ps-4" style="font-family: Arial;">
-            <img src="assets/imges/item.png" alt="" width="33" height="33" class="d-inline-block align-text-top">
+            <img src="../assets/imges/item.png" alt="" width="33" height="33" class="d-inline-block align-text-top">
             Items
         </h3>
     </div>
@@ -256,7 +256,7 @@
         <section class="row">
             <!--Image-->
             <div class="col-5 mt-5">
-                <img src="assets/imges/fod.jpg" class="img-fluid" alt="">
+                <img src="../assets/imges/fod.jpg" class="img-fluid" alt="">
             </div>
 
             <!--Fields-->
@@ -376,7 +376,7 @@
 <main id="mo">
     <div>
         <h3 class="ps-4" style="font-family: Arial;">
-            <img src="assets/imges/order.png" alt="" width="33" height="33" class="d-inline-block align-text-top">
+            <img src="../assets/imges/order.png" alt="" width="33" height="33" class="d-inline-block align-text-top">
             Orders
         </h3>
     </div>
@@ -392,24 +392,24 @@
                         <div class="col-6 mt-2">
                             <label for="oID" class="form-label">Order ID</label>
                             <input type="email" class="form-control" id="oID"
-                                   aria-describedby="emailHelp" placeholder="Order ID">
-                            <label for="Customer" class="form-label mt-2">Customer</label>
-                            <input type="email" class="form-control" id="customer"
-                                   aria-describedby="emailHelp" placeholder="Customer">
+                                   aria-describedby="emailHelp" placeholder="Order ID" disabled>
                             <label for="Name" class="form-label mt-2">Name</label>
-                            <input type="email" class="form-control" id="name"
-                                   aria-describedby="emailHelp" placeholder="Name">
+                            <input type="email" class="form-control" id="Name"
+                                   aria-describedby="emailHelp" placeholder="Nmae">
+                            <label for="Salary" class="form-label mt-2">Salary</label>
+                            <input type="email" class="form-control" id="Salary"
+                                   aria-describedby="emailHelp" placeholder="Salary">
                         </div>
                         <div class="col-6 mt-2">
                             <label for="date" class="form-label">Date</label>
                             <input type="date" class="form-control" id="date"
                                    aria-describedby="emailHelp">
-                            <label for="CustomerID" class="form-label mt-2">Customer ID</label>
-                            <input type="email" class="form-control" id="CustomerID"
-                                   aria-describedby="emailHelp" placeholder="Customer ID">
-                            <label for="Salary" class="form-label mt-2">Salary</label>
-                            <input type="email" class="form-control" id="Salary"
-                                   aria-describedby="emailHelp" placeholder="Salary">
+                            <label for="CustomerOID" class="form-label mt-2">Customer ID</label>
+                            <div class="col-12">
+                                <select id="CustomerOID" class="form-select" aria-label="Default select example">
+                                    <option selected>Customer Id's</option>
+                                </select>
+                            </div>
                         </div>
                     </div>
                     <div class="row mb-3">
@@ -426,38 +426,37 @@
                 </div>
                 <div class="row" style="background-color: #ebfff1">
                     <div class="row">
-                        <div class="col-6">
-                            <label for="item" class="form-label mt-2">Item</label>
-                            <input type="email" class="form-control" id="item"
-                                   aria-describedby="emailHelp" placeholder="Item">
-                        </div>
-                        <div class="col-6">
-                            <label for="code" class="form-label mt-2">Item Code</label>
-                            <input type="email" class="form-control" id="code"
-                                   aria-describedby="emailHelp" placeholder="code">
+                        <div class="col-5">
+                            <label for="itemID" class="form-label mt-2">Item ID</label>
+                            <select id="itemID" class="form-select" aria-label="Default select example">
+                                <option selected>Item Id's</option>
+                            </select>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-4">
+                        <div class="col-6">
                             <label for="iname" class="form-label mt-2">Item Name</label>
                             <input type="email" class="form-control" id="iname"
                                    aria-describedby="emailHelp" placeholder="Name">
                         </div>
-                        <div class="col-4">
+                        <div class="col-6">
                             <label for="price" class="form-label mt-2">Price</label>
                             <input type="email" class="form-control" id="price"
                                    aria-describedby="emailHelp" placeholder="Price">
                         </div>
-                        <div class="col-4">
-                            <label for="qtyOnH" class="form-label mt-2">QTYOnHand</label>
-                            <input type="email" class="form-control" id="qtyonH"
-                                   aria-describedby="emailHelp" placeholder="qty">
-                        </div>
+
                     </div>
                     <div class="row mb-3">
-                        <label for="qty" class="form-label mt-2">Order Quantity</label>
-                        <input type="email" class="form-control ms-2" id="qty"
+                        <div class="col-6">
+                        <label for="oqty" class="form-label mt-2">Order Quantity</label>
+                        <input type="email" class="form-control" id="oqty"
                                aria-describedby="emailHelp" placeholder="qty">
+                        </div>
+                        <div class="col-6">
+                            <label for="qty" class="form-label mt-2">QTYOnHand</label>
+                            <input type="email" class="form-control" id="qty"
+                                   aria-describedby="emailHelp" placeholder="qty">
+                        </div>
                     </div>
                     <div class="row mb-3 mt-4">
                         <div class="col-9"></div>
@@ -533,13 +532,14 @@
     </section>
 </main>
 
-<script src="assets/bootstrap/js/bootstrap.min.js"></script>
-<script src="assets/jQuerry/jquery-3.6.0.min.js"></script>
-<script src="db/DB.js"></script>
-<script src="model/Customer.js"></script>
-<script src="model/Item.js"></script>
-<script src="controler/CustomerControler.js"></script>
-<script src="controler/ItemController.js"></script>
+<script src="../assets/bootstrap/js/bootstrap.min.js"></script>
+<script src="../assets/jQuerry/jquery-3.6.0.min.js"></script>
+<script src="../db/DB.js"></script>
+<script src="../model/Customer.js"></script>
+<script src="../model/Item.js"></script>
+<script src="../controler/CustomerControler.js"></script>
+<script src="../controler/ItemController.js"></script>
+<script src="../controler/OrderController.js"></script>
 <script>
     /*Changing Interfaces*/
     $("#mh").css("display", "block");
@@ -562,6 +562,7 @@
         $("#mo").css("display", "none");
         $("#mh").css("display", "none");
         generateItemID();
+
     });
 
     $("#order").click(function () {
@@ -569,6 +570,8 @@
         $("#mi").css("display", "none");
         $("#mh").css("display", "none");
         $("#mo").css("display", "block");
+        loadAllCustID();
+        loadAllItemID();
     });
 
     $("#home").click(function () {
