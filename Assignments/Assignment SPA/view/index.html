@@ -461,7 +461,7 @@
                     <div class="row mb-3 mt-4">
                         <div class="col-9"></div>
                         <div class="col-3 ps-4">
-                            <button type="button" class="btn btn-success" data-bs-dismiss="modal">Add Item</button>
+                            <button type="button" class="btn btn-success" data-bs-dismiss="modal" id="btnAddItem">Add Item</button>
                         </div>
 
                     </div>
@@ -504,7 +504,7 @@
         <section class="row mt-4">
             <div class="col-1"></div>
             <div class="col-10">
-                <table class="table table-hover">
+                <table class="table table-hover" id="OTbl">
                     <thead>
                     <tr style="background-color: #abffcb">
                         <th scope="col">Item Code</th>
@@ -514,7 +514,7 @@
                         <th scope="col">Total</th>
                     </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="OtblBody">
                     <tr>
                         <th scope="row">I001</th>
                         <td>Potato</td>
@@ -537,6 +537,8 @@
 <script src="../db/DB.js"></script>
 <script src="../model/Customer.js"></script>
 <script src="../model/Item.js"></script>
+<script src="../model/Order.js"></script>
+<script src="../model/ItemDetail.js"></script>
 <script src="../controler/CustomerControler.js"></script>
 <script src="../controler/ItemController.js"></script>
 <script src="../controler/OrderController.js"></script>
@@ -572,6 +574,7 @@
         $("#mo").css("display", "block");
         loadAllCustID();
         loadAllItemID();
+        generateOrderID();
     });
 
     $("#home").click(function () {

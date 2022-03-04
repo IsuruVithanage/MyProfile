@@ -1,8 +1,10 @@
-function ItemDetail(id, name, price , qty) {
+function ItemDetail(id, name, price , oqty, qty) {
     var __id=id;
     var __name=name;
     var __price=price;
+    var __oqty=oqty;
     var __qty=qty;
+
 
     this.getitemDetailID = function () {
         return __id;
@@ -13,11 +15,15 @@ function ItemDetail(id, name, price , qty) {
     }
 
     this.getbuyQTY = function () {
-        return __qty;
+        return __oqty;
     }
 
     this.getitemPrice = function () {
         return __price;
+    }
+
+    this.getqtyoh = function () {
+        return __qty;
     }
 
     this.setitemID = function (v) {
@@ -29,6 +35,10 @@ function ItemDetail(id, name, price , qty) {
     }
 
     this.setbuyQTY = function (v) {
+        __oqty=v;
+    }
+
+    this.setQTYoh = function (v) {
         __qty=v;
     }
 
