@@ -154,6 +154,7 @@ function searchCustomer(id) {
 
 //Genereate Customer ID
 function generateCustID() {
+
     if (customerDB.length !== 0) {
         let id = customerDB[(customerDB.length) - 1].getCustID();
         const txt = id.split('C', 2);
