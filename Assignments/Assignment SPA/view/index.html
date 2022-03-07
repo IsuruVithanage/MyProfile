@@ -485,18 +485,19 @@
                         <form>
                             <div>
                                 <label for="txtSearchOrder" class="form-label">Search Order</label>
-                                <input type="email" class="form-control" id="txtSearchOrder"
+                                <input type="email" class="form-control btn-sm" id="txtSearchOrder"
                                        aria-describedby="emailHelp" placeholder="ID">
                             </div>
                         </form>
                     </div>
 
                     <!--Search Button-->
-                    <div class="col-2 mt-3 pt-3 ps-2">
-                        <button type="submit" class="btn btn-outline-success" id="btnSearchOrder">Search</button>
+                    <div class="col-6 mt-3 pt-3 ps-2">
+                        <button type="submit" class="btn btn-outline-success" style="height:27px; width: 65px; padding-top: 1px; font-size: 15px; padding-left: 9px" id="btnSearchOrder">Search</button>
+                        <button type="submit" class="btn btn-info" style="height:27px; width: 56px; padding-top: 1px; font-size: 15px; padding-left: 10px" id="btnclearAll">Clear</button>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row mt-2">
                     <div class="col-5">
                         <h4>Total : </h4>
                     </div>
@@ -612,6 +613,7 @@
         $("#mo").css("display", "none");
         $("#mh").css("display", "none");
         generateItemID();
+        loadAllItems();
 
     });
 

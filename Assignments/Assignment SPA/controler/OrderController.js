@@ -49,7 +49,6 @@ $("#itemID").click(function () {
     }
 
 
-
 });
 
 
@@ -102,15 +101,30 @@ $("#cancelOrder").click(function () {
 
     for (var i in orderDB) {
         if (val === orderDB[i].getoID()) {
+            increItemQTY();
             orderDB.splice(i, 1);
+            tempItemList=[];
             clearAllordercustTxt();
             clearAllorderitemTxt();
             $("#OtblBody").empty();
+            $("#txtCash,#txtBalance,#txtDiscount").val("");
             generateOrderID();
             return;
         }
     }
 
+
+});
+
+$("#btnclearAll").click(function () {
+    $("#txtSearchOrder").val("");
+    $("#txtCash,#txtBalance,#txtDiscount").val("");
+    clearAllordercustTxt();
+    clearAllorderitemTxt();
+    $("#OtblBody").empty();
+    generateOrderID();
+    decreItemQTY();
+    tempItemList=[];
 
 
 });
@@ -120,6 +134,7 @@ $("#btnPlaceOrder").click(function () {
     clearAllorderitemTxt();
     clearAllordercustTxt();
     $("#OtblBody").empty();
+    $("#txtCash,#txtBalance,#txtDiscount").val("");
     generateOrderID();
 
 
@@ -127,8 +142,6 @@ $("#btnPlaceOrder").click(function () {
 
 $("#btnAdd").click(function () {
     balanceCal();
-
-
 });
 
 $("#btnupdateOitem").click(function () {
@@ -138,15 +151,13 @@ $("#btnupdateOitem").click(function () {
     for (var i in tempItemList) {
         if (id === tempItemList[i].getitemDetailID()) {
             tempItemList[i].setbuyQTY(qty);
+            var itemPrice=tempItemList[i].getitemPrice();
+            $("#txtTotal,#txtSubTotal").text(updateTotal(itemPrice * qty));
             loadAllBoughtItems();
             clearAllorderitemTxt();
             return;
         }
-
     }
-
-
-
 });
 
 /*Add a item*/
@@ -162,8 +173,7 @@ function addItem() {
         for (var i of tempItemList) {
             if (itemID === i.getitemDetailID()) {
                 i.setbuyQTY(parseInt(i.getbuyQTY()) + parseInt(oqty));
-                $("#txtTotal").text(updateTotal(itemPrice * (parseInt(oqty))));
-                $("#txtSubTotal").text($("#txtTotal").text());
+                $("#txtTotal,#txtSubTotal").text(updateTotal(itemPrice * oqty));
                 return;
             }
         }
@@ -172,8 +182,7 @@ function addItem() {
         /*console.log(true);*/
         var item = new ItemDetail(itemID, itemName, itemPrice, oqty, qty);
         tempItemList.push(item);
-        $("#txtTotal").text(updateTotal(itemPrice * oqty));
-        $("#txtSubTotal").text($("#txtTotal").text());
+        $("#txtTotal,#txtSubTotal").text(updateTotal(itemPrice * oqty));
 
     }
 }
@@ -185,12 +194,39 @@ function placeOrder() {
     let custID = $('#CustomerOID').find(":selected").text();
 
     var a = tempItemList;
+    decreItemQTY();
     var order = new Order(oID, custID, date, a);
     orderDB.push(order);
     tempItemList = [];
-    $("#txtTotal").text("0Rs/=");
-    $("#txtSubTotal").text("0Rs/=");
+    $("#txtTotal,#txtSubTotal").text("0Rs/=");
 
+}
+
+//increment item qty
+function increItemQTY() {
+    for (var i of tempItemList) {
+        for (var j of itemDB) {
+            if (j.getitemID()===i.getitemDetailID()){
+                j.setQTY(parseInt(j.getQTY())+parseInt(i.getbuyQTY()));
+            }
+
+        }
+
+    }
+
+}
+
+//increment item qty
+function decreItemQTY() {
+    for (var i of tempItemList) {
+        for (var j of itemDB) {
+            if (j.getitemID()===i.getitemDetailID()){
+                j.setQTY(j.getQTY()-i.getbuyQTY());
+            }
+
+        }
+
+    }
 
 }
 
@@ -198,11 +234,9 @@ function balanceCal() {
     const total = parseInt($("#txtTotal").text().split('R', 1));
     var per = $("#txtDiscount").val();
     var cash = $("#txtCash").val();
-    var dis = per/100;
-    $("#txtSubTotal").text(total-(total*dis));
-    $("#txtBalance").val(cash-(total-(total*dis)));
-
-
+    var dis = per / 100;
+    $("#txtSubTotal").text(total - (total * dis));
+    $("#txtBalance").val(cash - (total - (total * dis)));
 
 
 }
@@ -232,18 +266,45 @@ $("#btnSearchOrder").click(function () {
 
     var response = searchOrder(searchID);
     if (response) {
-        $("#oID").val(response.getoID());
-        $("#date").val(response.getdate());
         $("#CustomerOID").val(response.getCustID());
+        console.log("run");
+        var customerData = getCustomerData(response.getCustID());
+        $("#Name").val(customerData.getCustName());
+        console.log(customerData.getCustName());
+        $("#Salary").val(customerData.getCustSalary());
+        $("#address").val(customerData.getCustAddress());
         tempItemList = response.getitemList();
+        $("#txtTotal,#txtSubTotal").text(calculateTotal());
         loadAllBoughtItems();
+        increItemQTY();
+
     } else {
         clearAllCustTxt();
         alert("No Such a Customer");
     }
 });
 
-//Serach Customer
+//Calculate Total
+function calculateTotal() {
+    var total=0;
+    for (var i of tempItemList) {
+        total=total+(i.getitemPrice()*i.getbuyQTY());
+    }
+    return total+"Rs/=";
+
+}
+
+
+//Get Customer Data
+function getCustomerData(id) {
+    for (var i of customerDB) {
+        if (id === i.getCustID()) {
+            return i;
+        }
+    }
+}
+
+//Serach Order
 function searchOrder(id) {
     for (let i = 0; i < orderDB.length; i++) {
         if (orderDB[i].getoID() == id) {
@@ -276,6 +337,8 @@ function loadAllBoughtItems() {
         let oqty = $(this).children(":eq(3)").text();
         let qty = getQTYOnHand(itemID);
 
+        $("#txtTotal,#txtSubTotal").text(updateTotal(-(itemPrice * oqty)));
+
         // set values for the input fields
         $("#itemID").val(itemID);
         $("#iname").val(itemName);
@@ -305,7 +368,7 @@ function clearAllorderitemTxt() {
 }
 
 function clearAllordercustTxt() {
-    $('#Name,#Salary,#Address').val("");
+    $('#Name,#Salary,#address').val("");
     $('#date').val("");
     $("#btnAddItem").attr('disabled', true);
     loadAllBoughtItems();
