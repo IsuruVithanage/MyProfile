@@ -1,0 +1,7 @@
+{
+  "name": "MyProfile",
+  "version": "1.0.0",
+  "devDependencies": {
+    "sweetalert": "^2.1.2"
+  }
+}

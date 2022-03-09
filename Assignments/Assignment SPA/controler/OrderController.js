@@ -136,6 +136,7 @@ $("#btnPlaceOrder").click(function () {
     $("#OtblBody").empty();
     $("#txtCash,#txtBalance,#txtDiscount").val("");
     generateOrderID();
+    swal("Success!", "Order has been placed successfully!", "success");
 
 
 });
@@ -162,6 +163,7 @@ $("#btnupdateOitem").click(function () {
 
 /*Add a item*/
 function addItem() {
+    $("#btnPlaceOrder").attr('disabled', false);
     //gather Item information
     let itemID = $('#itemID').find(":selected").text();
     let itemName = $("#iname").val();
@@ -193,12 +195,41 @@ function placeOrder() {
     let date = $("#date").val();
     let custID = $('#CustomerOID').find(":selected").text();
 
-    var a = tempItemList;
-    decreItemQTY();
-    var order = new Order(oID, custID, date, a);
-    orderDB.push(order);
-    tempItemList = [];
-    $("#txtTotal,#txtSubTotal").text("0Rs/=");
+    if (isOrderExists(oID)){
+        var b = tempItemList;
+        decreItemQTY();
+        for (var o of orderDB) {
+            if (oID===o.getoID()){
+                o.setitemList(b);
+            }
+        }
+        tempItemList = [];
+        $("#txtTotal,#txtSubTotal").text("0Rs/=");
+        $("#txtSearchOrder").val("");
+        $("#btnPlaceOrder").html("Purchase Order");
+        $("#btnPlaceOrder").attr("class","btn btn-success");
+
+    }else {
+        var a = tempItemList;
+        decreItemQTY();
+        var order = new Order(oID, custID, date, a);
+        orderDB.push(order);
+        tempItemList = [];
+        $("#txtTotal,#txtSubTotal").text("0Rs/=");
+    }
+
+
+
+}
+
+//
+function isOrderExists(id) {
+    for (var i of orderDB) {
+        if (id === i.getoID()) {
+            return true;
+        }
+    }
+    return false;
 
 }
 
@@ -262,10 +293,13 @@ function updateTotal(ammount) {
 
 // search customer
 $("#btnSearchOrder").click(function () {
+
     var searchID = $("#txtSearchOrder").val();
 
     var response = searchOrder(searchID);
     if (response) {
+        $("#oID").val(searchID);
+        $("#date").val(response.getdate());
         $("#CustomerOID").val(response.getCustID());
         console.log("run");
         var customerData = getCustomerData(response.getCustID());
@@ -277,6 +311,9 @@ $("#btnSearchOrder").click(function () {
         $("#txtTotal,#txtSubTotal").text(calculateTotal());
         loadAllBoughtItems();
         increItemQTY();
+        $("#btnupdateOitem").attr('disabled', false);
+        $("#btnPlaceOrder").html("Update Order");
+        $("#btnPlaceOrder").attr("class","btn btn-outline-warning");
 
     } else {
         clearAllCustTxt();
@@ -345,6 +382,9 @@ function loadAllBoughtItems() {
         $("#qty").val(qty);
         $("#oqty").val(oqty);
         $("#price").val(price);
+
+        $("#btndeleteoitem").attr('disabled', false);
+        $("#btnupdateOitem").attr('disabled', false);
 
 
     });

@@ -10,6 +10,7 @@ $("#btnSaveItem").click(function () {
         clearAllItemTxt();
         loadAllItems();
         generateItemID();
+        swal("Success!", "Item has been saved!", "success");
 
     });
 

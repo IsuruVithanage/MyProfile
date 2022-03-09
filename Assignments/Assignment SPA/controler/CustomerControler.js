@@ -12,6 +12,7 @@ $("#btnSaveCust").click(function () {
         clearAllCustTxt();
         loadAllCustomers();
         generateCustID();
+        swal("Success!", "Customer has been saved!", "success");
     });
 });
 
@@ -198,15 +199,6 @@ $("#txtCustName").on('keyup', function (eventOb) {
     if (eventOb.key == "Enter") {
         checkIfCustValid();
     }
-
-    /*if (eventOb.key == "Control") {
-        var typedCustomerID = $("#txtCustID").text();
-        var srcCustomer = searchCustomerFromID(typedCustomerID);
-        $("#txtCustID").text(srcCustomer.getCustomerID());
-        $("#txtCustName").val(srcCustomer.getCustomerName());
-        $("#txtCustAddress").val(srcCustomer.getCustomerAddress());
-        $("#txtCustSalary").val(srcCustomer.getCustomerSalary());
-    }*/
 
 });
 

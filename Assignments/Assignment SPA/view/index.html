@@ -42,7 +42,7 @@
 
 </header>
 <main id="mh">
-    <div id="carouselExampleCaptions" class="carousel slide w-50 position-absolute top-50 start-50 translate-middle"
+    <!--<div id="carouselExampleCaptions" class="carousel slide w-50 position-absolute top-50 start-50 translate-middle"
          data-bs-ride="carousel">
         <div class="carousel-indicators">
             <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
@@ -85,7 +85,36 @@
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
         </button>
-    </div>
+    </div>-->
+
+    <section class="container-fluid">
+        <section class="row">
+            <!--Image-->
+            <img src="../assets/imges/logo.jpg" class="img-fluid" alt="" style="width: 550px; margin-left: 365px; margin-top:0">
+        </section>
+
+        <section class="row" style="width: 1282px">
+            <!--Image-->
+            <div class="col-4" style="background-color: #e3fded; width: 300px; height: 355px; margin-left: 115px; border: 1px solid #008000; border-radius: 15px">
+                <img src="../assets/imges/customers.png" class="img-fluid" alt="" style="width: 120px; margin-left: 71px; margin-top: 36px">
+                <h4 style="margin-left: 64px; margin-top: 18px; font-size: 30px; font-family: fantasy">Customers</h4>
+                <h4 id="totCust" style="margin-left: 104px; margin-top: 28px; font-size: 60px; color:#004400; font-family: fantasy">50</h4>
+
+            </div>
+            <div class="col-4" style="background-color: #e3fded; width: 300px; height: 355px; margin-left: 127px; border: 1px solid #008000; border-radius: 15px">
+                <img src="../assets/imges/items.png" class="img-fluid" alt="" style="width: 120px; margin-left: 75px; margin-top: 36px">
+                <h4 style="margin-left: 101px; margin-top: 18px; font-size: 30px; font-family: fantasy">Items</h4>
+                <h4 id="totItem" style="margin-left: 109px; margin-top: 28px; font-size: 60px; color:#004400; font-family: fantasy">50</h4>
+
+            </div>
+            <div class="col-4" style="background-color: #e3fded; width: 300px; height: 355px; margin-left: 127px; border: 1px solid #008000; border-radius: 15px">
+                <img src="../assets/imges/orders.png" class="img-fluid" alt="" style="width: 120px; margin-left: 71px; margin-top: 36px">
+                <h4 style="margin-left: 90px; margin-top: 18px; font-size: 30px; font-family: fantasy">Orders</h4>
+                <h4 id="totOrder" style="margin-left: 109px; margin-top: 28px; font-size: 60px; color:#004400; font-family: fantasy">50</h4>
+
+            </div>
+        </section>
+    </section>
 
 
 </main>
@@ -493,8 +522,14 @@
 
                     <!--Search Button-->
                     <div class="col-6 mt-3 pt-3 ps-2">
-                        <button type="submit" class="btn btn-outline-success" style="height:27px; width: 65px; padding-top: 1px; font-size: 15px; padding-left: 9px" id="btnSearchOrder">Search</button>
-                        <button type="submit" class="btn btn-info" style="height:27px; width: 56px; padding-top: 1px; font-size: 15px; padding-left: 10px" id="btnclearAll">Clear</button>
+                        <button type="submit" class="btn btn-outline-success"
+                                style="height:27px; width: 65px; padding-top: 1px; font-size: 15px; padding-left: 9px"
+                                id="btnSearchOrder">Search
+                        </button>
+                        <button type="submit" class="btn btn-info"
+                                style="height:27px; width: 56px; padding-top: 1px; font-size: 15px; padding-left: 10px"
+                                id="btnclearAll">Clear
+                        </button>
                     </div>
                 </div>
                 <div class="row mt-2">
@@ -544,7 +579,7 @@
                         <button type="button" class="btn btn-primary" id="cancelOrder">Cancel</button>
                     </div>
                     <div class="col-7 ps-4 ms-3">
-                        <button type="button" class="btn btn-success" id="btnPlaceOrder">Purchase</button>
+                        <button type="button" class="btn btn-success" id="btnPlaceOrder">Purchase Order</button>
                     </div>
 
                 </div>
@@ -591,9 +626,12 @@
 <script src="../controler/CustomerControler.js"></script>
 <script src="../controler/ItemController.js"></script>
 <script src="../controler/OrderController.js"></script>
+<script src="../controler/HomeController.js"></script>
+<script src="../assets/sweetalert.min.js"></script>
 <script>
     /*Changing Interfaces*/
     $("#mh").css("display", "block");
+    loadHomeData();
     $("#mc").css("display", "none");
     $("#mi").css("display", "none");
     $("#mo").css("display", "none");
@@ -625,6 +663,7 @@
         loadAllCustID();
         loadAllItemID();
         generateOrderID();
+        $("#btnupdateOitem,#btnPlaceOrder,#btndeleteoitem,#cancelOrder,#btnAddItem").attr('disabled', true);
     });
 
     $("#home").click(function () {
@@ -632,7 +671,10 @@
         $("#mi").css("display", "none");
         $("#mh").css("display", "block");
         $("#mo").css("display", "none");
+        loadHomeData();
     });
+
+
 
 
 </script>
