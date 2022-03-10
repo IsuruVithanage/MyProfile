@@ -29,7 +29,7 @@ function clearAllItemTxt() {
     $('#txtItemName,#txtQTY,#txtPrice').css('border', '2px solid #ced4da');
     $("#btnSaveItem").attr('disabled', true);
     loadAllItems();
-    /*$("#lblcusid,#lblcusname,#lblcusaddress,#lblcussalary").text("");*/
+    $("#lblprice,#lblqty,#lblItemName").text("");
 }
 
 /*Save Item*/
@@ -110,7 +110,7 @@ $("#btnSearchItem").click(function () {
         $("#txtPrice").val(response.getPrice());
     } else {
         clearAllItemTxt();
-        alert("No Such a Item");
+        swal("Warning!", "Item not found!", "warning");
     }
 });
 
@@ -205,17 +205,17 @@ function formValid() {
                 return true;
             } else {
                 $("#txtPrice").css('border', '2px solid red');
-                $("#lblprice").text("Cus Salary is a required field : Pattern 100.00 or 100");
+                $("#lblprice").text("Item Price is a required field : Numerical vale");
                 return false;
             }
         } else {
             $("#txtQTY").css('border', '2px solid red');
-            $("#lblqty").text("Cus Name is a required field : Mimum 7");
+            $("#lblqty").text("Item QTY is a required field : Numerical vale");
             return false;
         }
     } else {
         $("#txtItemName").css('border', '2px solid red');
-        $("#lblItemName").text("Cus Name is a required field : Mimimum 5, Max 20, Spaces Allowed");
+        $("#lblItemName").text("Item Name is a required field : Mimimum 5, Max 20, Spaces Allowed");
         return false;
     }
 }

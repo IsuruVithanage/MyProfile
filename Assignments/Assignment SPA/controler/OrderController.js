@@ -26,11 +26,8 @@ $("#CustomerOID").click(function () {
             $("#Salary").val(customerDB[i].getCustSalary());
             $("#address").val(customerDB[i].getCustAddress());
             return;
-
         }
     }
-
-
 });
 
 //Add listener to the Item ComboBox
@@ -47,6 +44,7 @@ $("#itemID").click(function () {
             for (var j of tempItemList) {
                 if (j.getitemDetailID() === itemDB[i].getitemID()) {
                     $("#qty").val(itemDB[i].getQTY() - j.getbuyQTY());
+                    return
                 }
             }
 
@@ -79,6 +77,7 @@ function generateOrderID() {
 
 }
 
+//Set the listner to the add button
 $("#btnAddItem").click(function () {
     if ($("#iname").val().length > 0 && $("#oqty").val().length > 0 && $.isNumeric($("#oqty").val())) {
         if (parseInt($("#oqty").val()) > parseInt($("#qty").val())) {
@@ -89,11 +88,12 @@ $("#btnAddItem").click(function () {
             clearAllorderitemTxt();
         }
     } else {
-        swal("Warning!", "Order cannot be placed please check!", "warning");
+        swal("Warning!", "Order cannot add the item please check!", "warning");
     }
 
 });
 
+//Set the listner to delete button
 $("#btndeleteoitem").click(function () {
     let id = $('#itemID').find(":selected").text();
     for (var i in tempItemList) {
@@ -105,10 +105,9 @@ $("#btndeleteoitem").click(function () {
         }
 
     }
-
-
 });
 
+//Cancel Order Button
 $("#cancelOrder").click(function () {
     $("#confirmdeleteOrder").off("click");
 
@@ -134,6 +133,7 @@ $("#cancelOrder").click(function () {
 
 });
 
+//Clear All Button
 $("#btnclearAll").click(function () {
     $("#txtSearchOrder").val("");
     $("#txtCash,#txtBalance,#txtDiscount").val("");
@@ -143,10 +143,16 @@ $("#btnclearAll").click(function () {
     generateOrderID();
     decreItemQTY();
     tempItemList = [];
-
-
+    $("#btnupdateOitem").attr('disabled', true);
+    $("#btnPlaceOrder").attr('disabled', true);
+    $("#cancelOrder").attr('disabled', true);
+    $("#btndeleteoitem").attr('disabled', true);
+    $("#btnPlaceOrder").html("Purchase Order");
+    $("#btnPlaceOrder").attr("class", "btn btn-success");
+    $("#txtSearchOrder").val("");
 });
 
+//Place Order Button
 $("#btnPlaceOrder").click(function () {
 
     $("#confirmSaveOrder").off("click");
@@ -165,17 +171,18 @@ $("#btnPlaceOrder").click(function () {
         }
     });
 
-
 });
 
+//Discount Add Button
 $("#btnAdd").click(function () {
     if ($("#txtCash").val().length>0 && $.isNumeric($("#txtCash").val())) {
         balanceCal();
     }else {
-        swal("Warning!", "Order cannot be placed please check!", "warning");
+        swal("Warning!", "Cash cannot be added please check!", "warning");
     }
 });
 
+//Item Update button
 $("#btnupdateOitem").click(function () {
     if ($("#oqty").val().length > 0) {
         let id = $('#itemID').find(":selected").text();
@@ -196,10 +203,42 @@ $("#btnupdateOitem").click(function () {
             }
         }
     } else {
-        swal("Warning!", "Order cannot be placed please check!", "warning");
+        swal("Warning!", "Item cannot be update please check!", "warning");
     }
 
 
+});
+
+// search customer button
+$("#btnSearchOrder").click(function () {
+
+    var searchID = $("#txtSearchOrder").val();
+
+    var response = searchOrder(searchID);
+    if (response) {
+        $("#oID").val(searchID);
+        $("#date").val(response.getdate());
+        $("#CustomerOID").val(response.getCustID());
+        console.log("run");
+        var customerData = getCustomerData(response.getCustID());
+        $("#Name").val(customerData.getCustName());
+        console.log(customerData.getCustName());
+        $("#Salary").val(customerData.getCustSalary());
+        $("#address").val(customerData.getCustAddress());
+        tempItemList = response.getitemList();
+        $("#txtTotal,#txtSubTotal").text(calculateTotal());
+        loadAllBoughtItems();
+        increItemQTY();
+        $("#btnupdateOitem").attr('disabled', false);
+        $("#btnPlaceOrder").attr('disabled', false);
+        $("#cancelOrder").attr('disabled', false);
+        $("#btnPlaceOrder").html("Update Order");
+        $("#btnPlaceOrder").attr("class", "btn btn-outline-warning");
+
+    } else {
+        $("#txtSearchOrder").val("");
+        swal("Warning!", "Order Not Found!", "warning");
+    }
 });
 
 /*Add a item*/
@@ -262,7 +301,7 @@ function placeOrder() {
 
 }
 
-//
+//Check whether the order is exists or not
 function isOrderExists(id) {
     for (var i of orderDB) {
         if (id === i.getoID()) {
@@ -301,6 +340,7 @@ function decreItemQTY() {
 
 }
 
+//Calculate balance
 function balanceCal() {
     const total = parseInt($("#txtTotal").text().split('R', 1));
     var per = $("#txtDiscount").val();
@@ -309,11 +349,9 @@ function balanceCal() {
     $("#txtSubTotal").text((total - (total * dis))+"Rs/=");
     $("#txtBalance").val(cash - (total - (total * dis)));
 
-
 }
 
-
-//Check the
+//Check the item is in the item list
 function isExistsItemDetail(id) {
     for (var i of tempItemList) {
         if (id === i.getitemDetailID()) {
@@ -328,40 +366,7 @@ function isExistsItemDetail(id) {
 function updateTotal(ammount) {
     const txt = $("#txtTotal").text().split('R', 1);
     return (parseInt(txt) + ammount) + "Rs/=";
-
 }
-
-// search customer
-$("#btnSearchOrder").click(function () {
-
-    var searchID = $("#txtSearchOrder").val();
-
-    var response = searchOrder(searchID);
-    if (response) {
-        $("#oID").val(searchID);
-        $("#date").val(response.getdate());
-        $("#CustomerOID").val(response.getCustID());
-        console.log("run");
-        var customerData = getCustomerData(response.getCustID());
-        $("#Name").val(customerData.getCustName());
-        console.log(customerData.getCustName());
-        $("#Salary").val(customerData.getCustSalary());
-        $("#address").val(customerData.getCustAddress());
-        tempItemList = response.getitemList();
-        $("#txtTotal,#txtSubTotal").text(calculateTotal());
-        loadAllBoughtItems();
-        increItemQTY();
-        $("#btnupdateOitem").attr('disabled', false);
-        $("#btnPlaceOrder").attr('disabled', false);
-        $("#cancelOrder").attr('disabled', false);
-        $("#btnPlaceOrder").html("Update Order");
-        $("#btnPlaceOrder").attr("class", "btn btn-outline-warning");
-
-    } else {
-        clearAllCustTxt();
-        alert("No Such a Customer");
-    }
-});
 
 //Calculate Total
 function calculateTotal() {
@@ -386,7 +391,7 @@ function getCustomerData(id) {
 //Serach Order
 function searchOrder(id) {
     for (let i = 0; i < orderDB.length; i++) {
-        if (orderDB[i].getoID() == id) {
+        if (orderDB[i].getoID() === id) {
             return orderDB[i];
         }
     }
@@ -428,7 +433,6 @@ function loadAllBoughtItems() {
         $("#btndeleteoitem").attr('disabled', false);
         $("#btnupdateOitem").attr('disabled', false);
 
-
     });
 }
 
@@ -442,13 +446,14 @@ function getQTYOnHand(id) {
 
 }
 
-/*Clear the text fields*/
+/*Clear the text item fields*/
 function clearAllorderitemTxt() {
     $('#iname,#price,#oqty,#qty').val("");
     $("#btnAddItem").attr('disabled', true);
     loadAllBoughtItems();
 }
 
+//Clear customer txt fields
 function clearAllordercustTxt() {
     $('#Name,#Salary,#address').val("");
     $('#date').val("");
@@ -456,9 +461,10 @@ function clearAllordercustTxt() {
     loadAllBoughtItems();
 }
 
+//Validation
 const orderRegEx = /^[0-9]{1,}$/;
 
-
+//Validation for item qty
 $('#oqty').on('keyup', function () {
     var oqty = $("#oqty").val();
     if (orderRegEx.test(oqty)) {
@@ -469,6 +475,7 @@ $('#oqty').on('keyup', function () {
     }
 });
 
+//Validation for cash
 $('#txtCash').on('keyup', function () {
     var cash = $("#txtCash").val();
     if (orderRegEx.test(cash)) {
