@@ -43,7 +43,12 @@ $("#itemID").click(function () {
             $("#qty").val(itemDB[i].getQTY());
             $("#price").val(itemDB[i].getPrice());
             $("#btnAddItem").attr('disabled', false);
-            return;
+
+            for (var j of tempItemList) {
+                if (j.getitemDetailID() === itemDB[i].getitemID()) {
+                    $("#qty").val(itemDB[i].getQTY() - j.getbuyQTY());
+                }
+            }
 
         }
     }
@@ -75,9 +80,17 @@ function generateOrderID() {
 }
 
 $("#btnAddItem").click(function () {
-    addItem();
-    loadAllBoughtItems();
-    clearAllorderitemTxt();
+    if ($("#iname").val().length > 0 && $("#oqty").val().length > 0 && $.isNumeric($("#oqty").val())) {
+        if (parseInt($("#oqty").val()) > parseInt($("#qty").val())) {
+            swal("Warning!", "There are no enough stock for this order!", "warning");
+        } else {
+            addItem();
+            loadAllBoughtItems();
+            clearAllorderitemTxt();
+        }
+    } else {
+        swal("Warning!", "Order cannot be placed please check!", "warning");
+    }
 
 });
 
@@ -97,21 +110,26 @@ $("#btndeleteoitem").click(function () {
 });
 
 $("#cancelOrder").click(function () {
-    var val = $("#oID").val();
+    $("#confirmdeleteOrder").off("click");
 
-    for (var i in orderDB) {
-        if (val === orderDB[i].getoID()) {
-            increItemQTY();
-            orderDB.splice(i, 1);
-            tempItemList=[];
-            clearAllordercustTxt();
-            clearAllorderitemTxt();
-            $("#OtblBody").empty();
-            $("#txtCash,#txtBalance,#txtDiscount").val("");
-            generateOrderID();
-            return;
+    $("#confirmdeleteOrder").click(function () {
+        var val = $("#oID").val();
+
+        for (var i in orderDB) {
+            if (val === orderDB[i].getoID()) {
+                increItemQTY();
+                orderDB.splice(i, 1);
+                tempItemList = [];
+                clearAllordercustTxt();
+                clearAllorderitemTxt();
+                $("#OtblBody").empty();
+                $("#txtCash,#txtBalance,#txtDiscount").val("");
+                generateOrderID();
+                swal("Success!", "Order has been Canceled!", "success");
+                return;
+            }
         }
-    }
+    });
 
 
 });
@@ -124,41 +142,64 @@ $("#btnclearAll").click(function () {
     $("#OtblBody").empty();
     generateOrderID();
     decreItemQTY();
-    tempItemList=[];
+    tempItemList = [];
 
 
 });
 
 $("#btnPlaceOrder").click(function () {
-    placeOrder();
-    clearAllorderitemTxt();
-    clearAllordercustTxt();
-    $("#OtblBody").empty();
-    $("#txtCash,#txtBalance,#txtDiscount").val("");
-    generateOrderID();
-    swal("Success!", "Order has been placed successfully!", "success");
+
+    $("#confirmSaveOrder").off("click");
+
+    $("#confirmSaveOrder").click(function () {
+        if (tempItemList.length != 0 && $("#Name").val().length > 0 && $("#txtCash").val().length > 0) {
+            placeOrder();
+            clearAllorderitemTxt();
+            clearAllordercustTxt();
+            $("#OtblBody").empty();
+            $("#txtCash,#txtBalance,#txtDiscount").val("");
+            generateOrderID();
+            swal("Success!", "Order has been placed successfully!", "success");
+        } else {
+            swal("Warning!", "Order cannot be placed please check!", "warning");
+        }
+    });
 
 
 });
 
 $("#btnAdd").click(function () {
-    balanceCal();
+    if ($("#txtCash").val().length>0 && $.isNumeric($("#txtCash").val())) {
+        balanceCal();
+    }else {
+        swal("Warning!", "Order cannot be placed please check!", "warning");
+    }
 });
 
 $("#btnupdateOitem").click(function () {
-    let id = $('#itemID').find(":selected").text();
-    let qty = $('#oqty').val();
+    if ($("#oqty").val().length > 0) {
+        let id = $('#itemID').find(":selected").text();
+        let qty = $('#oqty').val();
 
-    for (var i in tempItemList) {
-        if (id === tempItemList[i].getitemDetailID()) {
-            tempItemList[i].setbuyQTY(qty);
-            var itemPrice=tempItemList[i].getitemPrice();
-            $("#txtTotal,#txtSubTotal").text(updateTotal(itemPrice * qty));
-            loadAllBoughtItems();
-            clearAllorderitemTxt();
-            return;
+        if (parseInt($("#oqty").val()) > parseInt($("#qty").val())) {
+            swal("Warning!", "There are no enough stock for this order!", "warning");
+        } else {
+            for (var i in tempItemList) {
+                if (id === tempItemList[i].getitemDetailID()) {
+                    tempItemList[i].setbuyQTY(qty);
+                    var itemPrice = tempItemList[i].getitemPrice();
+                    $("#txtTotal,#txtSubTotal").text(updateTotal(itemPrice * qty));
+                    loadAllBoughtItems();
+                    clearAllorderitemTxt();
+                    return;
+                }
+            }
         }
+    } else {
+        swal("Warning!", "Order cannot be placed please check!", "warning");
     }
+
+
 });
 
 /*Add a item*/
@@ -195,11 +236,11 @@ function placeOrder() {
     let date = $("#date").val();
     let custID = $('#CustomerOID').find(":selected").text();
 
-    if (isOrderExists(oID)){
+    if (isOrderExists(oID)) {
         var b = tempItemList;
         decreItemQTY();
         for (var o of orderDB) {
-            if (oID===o.getoID()){
+            if (oID === o.getoID()) {
                 o.setitemList(b);
             }
         }
@@ -207,9 +248,9 @@ function placeOrder() {
         $("#txtTotal,#txtSubTotal").text("0Rs/=");
         $("#txtSearchOrder").val("");
         $("#btnPlaceOrder").html("Purchase Order");
-        $("#btnPlaceOrder").attr("class","btn btn-success");
+        $("#btnPlaceOrder").attr("class", "btn btn-success");
 
-    }else {
+    } else {
         var a = tempItemList;
         decreItemQTY();
         var order = new Order(oID, custID, date, a);
@@ -217,7 +258,6 @@ function placeOrder() {
         tempItemList = [];
         $("#txtTotal,#txtSubTotal").text("0Rs/=");
     }
-
 
 
 }
@@ -237,8 +277,8 @@ function isOrderExists(id) {
 function increItemQTY() {
     for (var i of tempItemList) {
         for (var j of itemDB) {
-            if (j.getitemID()===i.getitemDetailID()){
-                j.setQTY(parseInt(j.getQTY())+parseInt(i.getbuyQTY()));
+            if (j.getitemID() === i.getitemDetailID()) {
+                j.setQTY(parseInt(j.getQTY()) + parseInt(i.getbuyQTY()));
             }
 
         }
@@ -251,8 +291,8 @@ function increItemQTY() {
 function decreItemQTY() {
     for (var i of tempItemList) {
         for (var j of itemDB) {
-            if (j.getitemID()===i.getitemDetailID()){
-                j.setQTY(j.getQTY()-i.getbuyQTY());
+            if (j.getitemID() === i.getitemDetailID()) {
+                j.setQTY(j.getQTY() - i.getbuyQTY());
             }
 
         }
@@ -266,7 +306,7 @@ function balanceCal() {
     var per = $("#txtDiscount").val();
     var cash = $("#txtCash").val();
     var dis = per / 100;
-    $("#txtSubTotal").text(total - (total * dis));
+    $("#txtSubTotal").text((total - (total * dis))+"Rs/=");
     $("#txtBalance").val(cash - (total - (total * dis)));
 
 
@@ -312,8 +352,10 @@ $("#btnSearchOrder").click(function () {
         loadAllBoughtItems();
         increItemQTY();
         $("#btnupdateOitem").attr('disabled', false);
+        $("#btnPlaceOrder").attr('disabled', false);
+        $("#cancelOrder").attr('disabled', false);
         $("#btnPlaceOrder").html("Update Order");
-        $("#btnPlaceOrder").attr("class","btn btn-outline-warning");
+        $("#btnPlaceOrder").attr("class", "btn btn-outline-warning");
 
     } else {
         clearAllCustTxt();
@@ -323,11 +365,11 @@ $("#btnSearchOrder").click(function () {
 
 //Calculate Total
 function calculateTotal() {
-    var total=0;
+    var total = 0;
     for (var i of tempItemList) {
-        total=total+(i.getitemPrice()*i.getbuyQTY());
+        total = total + (i.getitemPrice() * i.getbuyQTY());
     }
-    return total+"Rs/=";
+    return total + "Rs/=";
 
 }
 
@@ -379,7 +421,7 @@ function loadAllBoughtItems() {
         // set values for the input fields
         $("#itemID").val(itemID);
         $("#iname").val(itemName);
-        $("#qty").val(qty);
+        $("#qty").val(qty - oqty);
         $("#oqty").val(oqty);
         $("#price").val(price);
 
@@ -413,3 +455,27 @@ function clearAllordercustTxt() {
     $("#btnAddItem").attr('disabled', true);
     loadAllBoughtItems();
 }
+
+const orderRegEx = /^[0-9]{1,}$/;
+
+
+$('#oqty').on('keyup', function () {
+    var oqty = $("#oqty").val();
+    if (orderRegEx.test(oqty)) {
+        $("#oqty").css('border', '2px solid green');
+    } else {
+        $("#oqty").css('border', '2px solid red');
+
+    }
+});
+
+$('#txtCash').on('keyup', function () {
+    var cash = $("#txtCash").val();
+    if (orderRegEx.test(cash)) {
+        $("#txtCash").css('border', '2px solid green');
+    } else {
+        $("#txtCash").css('border', '2px solid red');
+
+    }
+});
+

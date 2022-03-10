@@ -576,10 +576,12 @@
                 </div>
                 <div class="row mb-3 mt-4">
                     <div class="col-2 ms-5">
-                        <button type="button" class="btn btn-primary" id="cancelOrder">Cancel</button>
+                        <button type="button" class="btn btn-primary" id="cancelOrder" data-bs-toggle="modal"
+                                data-bs-target="#delOrder">Cancel</button>
                     </div>
                     <div class="col-7 ps-4 ms-3">
-                        <button type="button" class="btn btn-success" id="btnPlaceOrder">Purchase Order</button>
+                        <button type="button" class="btn btn-success" id="btnPlaceOrder" data-bs-toggle="modal"
+                                data-bs-target="#sveOrder">Purchase Order</button>
                     </div>
 
                 </div>
@@ -614,6 +616,50 @@
 
         </section>
     </section>
+
+    <!--Confirmation modal for save-->
+    <div class="modal fade" id="sveOrder" tabindex="-1" aria-labelledby="sveCust" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-success">
+                    <h5 class="modal-title" id="orderModalcolor: white" style="color: white">Confirm</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure that you want to save this Customer ?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal"
+                            id="confirmSaveOrder">Yes
+                    </button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Confirmation modal for delete-->
+    <div class="modal fade" id="delOrder" tabindex="-1" aria-labelledby="delCust" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-danger">
+                    <h5 class="modal-title" id="deleorderModalcolor: white" style="color: white">Confirm</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure that you want to delete this Customer ?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal"
+                            id="confirmdeleteOrder">Yes
+                    </button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </main>
 
 <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
