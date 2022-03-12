@@ -286,8 +286,9 @@ function placeOrder() {
         tempItemList = [];
         $("#txtTotal,#txtSubTotal").text("0Rs/=");
         $("#txtSearchOrder").val("");
-        $("#btnPlaceOrder").html("Purchase Order");
+        $("#btnPlaceOrder").html("Purchase");
         $("#btnPlaceOrder").attr("class", "btn btn-success");
+        $("#btnPlaceOrder").attr('disabled', true);
 
     } else {
         var a = tempItemList;
@@ -296,6 +297,7 @@ function placeOrder() {
         orderDB.push(order);
         tempItemList = [];
         $("#txtTotal,#txtSubTotal").text("0Rs/=");
+        $("#btnPlaceOrder").attr('disabled', true);
     }
 
 

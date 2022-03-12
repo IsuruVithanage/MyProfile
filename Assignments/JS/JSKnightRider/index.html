@@ -136,55 +136,43 @@
 <script src="js/jquery-3.6.0.min.js"></script>
 <script>
 
-    function front() {
-        let c1 = $("#d1").css("background-color");
-        let c2 = $("#d2").css("background-color");
-        let c3 = $("#d3").css("background-color");
-        let c4 = $("#d4").css("background-color");
-        let c5 = $("#d5").css("background-color");
-        let c6 = $("#d6").css("background-color");
-        let c7 = $("#d7").css("background-color");
+    const music = new Audio('assets/MyProjects_Knight-Rider(KITT)_assets_KITT-audio_Knight-Rider-Theme-Song.mp3');
 
-        $("#d1").css("background-color", c2);
-        $("#d2").css("background-color", c3);
-        $("#d3").css("background-color", c4);
-        $("#d4").css("background-color", c5);
-        $("#d5").css("background-color", c6);
-        $("#d6").css("background-color", c7);
-        $("#d7").css("background-color", c1);
+    let colours = ["#e30000","#ff3636","#ff5555","#ff9191","#ffb2b2","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff"];
+    let divisions = [$("#d1"),$("#d2"),$("#d3"),$("#d4"),$("#d5"),$("#d6"),$("#d7")];
+    let index = 0;
+    let temporaryColours = [];
 
-    }
+    function animateColours(){
+        temporaryColours.unshift(colours[index]);
 
-    function back() {
-        let c1 = $("#d1").css("background-color");
-        let c2 = $("#d2").css("background-color");
-        let c3 = $("#d3").css("background-color");
-        let c4 = $("#d4").css("background-color");
-        let c5 = $("#d5").css("background-color");
-        let c6 = $("#d6").css("background-color");
-        let c7 = $("#d7").css("background-color");
+        for (let i = 0; i < temporaryColours.length; i++) {
+            divisions[i].css('background-color',temporaryColours[i]);
+        }
 
-        $("#d1").css("background-color", c2);
-        $("#d2").css("background-color", c3);
-        $("#d3").css("background-color", c4);
-        $("#d4").css("background-color", c5);
-        $("#d5").css("background-color", c6);
-        $("#d6").css("background-color", c7);
-        $("#d7").css("background-color", c7);
+        index++;
+
+        if (index == 7){
+            temporaryColours = [];
+        }
+        if (index == 14){
+            index = 0;
+            temporaryColours = [];
+            divisions = divisions.reverse();
+        }
 
     }
 
-    let timer;
-
-    $("#start").click(function () {
-        timer = setInterval(back, 600);
-
+    $("#start").click(function (){
+        interval = setInterval(animateColours,100);
+        music.play();
+        music.loop = true;
+        music.playbackRate = 1;
     });
 
-    $("#stop").click(function () {
-
-        clearInterval(timer);
-
+    $("#stop").click(function (){
+        clearInterval(interval);
+        music.pause();
     });
 
 

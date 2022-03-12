@@ -23,18 +23,42 @@
             top: 170px;
         }
 
-        main>a>img{
-            display: inline;
-            position: absolute;
-            border-radius: 20px;
-        }
-
         main{
             height: 1000px;
         }
 
         html {
             scrollbar-color: rgb(1, 1, 1) rgb(110, 110, 110);
+        }
+
+        main > figure {
+            display: inline;
+            position: absolute;
+            border: 5px solid #3d3d3d
+        }
+
+        main>figure>figcaption{
+            background-color: #3d3d3d;
+            color: white;
+            font-size: 23px;
+            font-family: Arial;
+
+        }
+
+        #f1{
+            padding-left: 98px;
+        }
+
+        #f2{
+            padding-left: 171px;
+        }
+
+        #f3{
+            padding-left: 74px;
+        }
+
+        #f4{
+            padding-left: 86px;
         }
 
         ::-webkit-scrollbar {
@@ -59,21 +83,6 @@
             background: rgb(1, 1, 1);
         }
 
-        @media all and (max-width: 425px) {
-            #he{
-                width: 1276px !important;
-            }
-
-            main>a:nth-child(2)>img{
-                left: 715px;
-            }
-
-            main>a:nth-child(4)>img{
-                left: 715px;
-            }
-
-
-        }
     </style>
 </head>
 <body>
@@ -84,10 +93,27 @@
 </header>
 
 <main>
-    <a href="https://github.com/IsuruVithanage/CakeShop"><img src="assets/images/176.jpg" alt="" width="500" style="top: 383px; left: 55px"></a>
-    <a href="https://github.com/IsuruVithanage/SuperMarketSystem" target="_blank"><img src="assets/images/gr.jpg" alt="" width="500"style="top: 383px; left: 773px"></a>
-    <a href="https://github.com/IsuruVithanage/ParkingSystem" target="_blank"><img src="assets/images/sm.jpg" alt="" width="500"style="top: 850px; left: 55px"></a>
-    <a href="https://github.com/IsuruVithanage/Hibernate_CW" target="_blank"><img src="assets/images/orm2.jpg" alt=""style="top: 850px; left: 773px; width: 500px; height: 333px"></a>
+
+    <figure style="left: 36px; top: 375px; ">
+        <a href="https://github.com/IsuruVithanage/Hibernate_CW" target="_blank"><img src="assets/images/pm1.JPG" alt="" width="500" height="300"></a>
+        <figcaption id="f1">Student Management System</figcaption>
+    </figure>
+
+    <figure style="left: 738px; top: 375px">
+        <a href="https://github.com/IsuruVithanage/ParkingSystem" target="_blank"><img src="assets/images/pm2.JPG" alt="" width="500" height="300"></a>
+        <figcaption id="f2">Parking System</figcaption>
+    </figure>
+
+    <figure style="left: 36px; top: 804px">
+        <a href="https://github.com/IsuruVithanage/SuperMarketSystem" target="_blank"><img src="assets/images/pm3.JPG" alt="" width="500" height="300"></a>
+        <figcaption id="f3">Super Market Management System</figcaption>
+    </figure>
+
+    <figure style="left: 738px; top: 804px">
+        <a href="https://github.com/IsuruVithanage/CakeShop" target="_blank"><img src="assets/images/pm4.JPG" alt="" width="500" height="300"></a>
+        <figcaption id="f4">Cake Shop Management System</figcaption>
+    </figure>
+
 
 </main>
 

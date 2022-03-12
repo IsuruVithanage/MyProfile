@@ -5,6 +5,12 @@
     <title>Green Market POS</title>
     <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        .tbl-wrap{
+            height: 100px;
+            overflow-y: auto;
+        }
+    </style>
 
 </head>
 <body>
@@ -206,8 +212,8 @@
                 </section>
 
                 <!--Table-->
-                <section class="row mt-5">
-                    <div class="col-11">
+                <section class="row mt-5 ">
+                    <div class="col-11 tbl-wrap">
                         <table class="table table-hover" id="custTable">
                             <thead>
                             <tr style="background-color: #abffcb">
@@ -360,8 +366,7 @@
 
                 <!--Table-->
                 <section class="row mt-5">
-                    <div class="col-11" style="overflow-y:auto;" data-bs-spy="scroll" data-bs-target="#navbar-example2"
-                         data-bs-offset="0" class="scrollspy-example" tabindex="0">
+                    <div class="col-11 tbl-wrap">
                         <table class="table table-hover" id="ItemTable">
                             <thead>
                             <tr style="background-color: #abffcb">
@@ -581,7 +586,7 @@
                     </div>
                     <div class="col-7 ps-4 ms-3">
                         <button type="button" class="btn btn-success" id="btnPlaceOrder" data-bs-toggle="modal"
-                                data-bs-target="#sveOrder">Purchase Order</button>
+                                data-bs-target="#sveOrder">Purchase</button>
                     </div>
 
                 </div>
@@ -589,7 +594,7 @@
         </section>
         <section class="row mt-4">
             <div class="col-1"></div>
-            <div class="col-10">
+            <div class="col-10 tbl-wrap">
                 <table class="table table-hover" id="OTbl">
                     <thead>
                     <tr style="background-color: #abffcb">
@@ -602,11 +607,7 @@
                     </thead>
                     <tbody id="OtblBody">
                     <tr>
-                        <th scope="row">I001</th>
-                        <td>Potato</td>
-                        <td>20</td>
-                        <td>23</td>
-                        <td>480</td>
+
                     </tr>
 
                     </tbody>
