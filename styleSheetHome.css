@@ -509,7 +509,7 @@ html {
     header > div > ul {
         position: absolute;
         right: 0;
-        left: -37px;
+        left: -40px;
         top: 39px;
         bottom: 0;
         font-size: 15px;
@@ -519,6 +519,8 @@ html {
         width: max-content;
         margin: auto;
     }
+
+    .circle
 
     header > div:nth-child(1) > ul > a > li {
         padding: 0 3px 0 3px;
