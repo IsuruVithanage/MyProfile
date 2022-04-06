@@ -62,6 +62,7 @@
         <h1>ISURU VITHANAGE</h1>
         <h2>Hi there</h2>
         <h2>I'm</h2>
+        <p id="textAni">Developer</p>
     </div>
 
 </header>
@@ -231,11 +232,15 @@
 
 </footer>
 <script src="assets/Js/jquery-3.6.0.min.js"></script>
+<script src="assets/Js/autochange_text.js"></script>
 <script>
     $(window).on("load",function () {
         $("#loader").fadeOut(1000);
 
     });
+
+
+    startChangingText(['Developer', 'Designer', 'Thinker'], 3)
 </script>
 </body>
 </html>
