@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>The Slicer</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/CSS/normalize.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body::-webkit-scrollbar {
+            display: none;
+        }
+
+
+        .cubes {
+            left: 0;
+            top: 0;
+            width: 100px;
+            height: 100px;
+            background-color: orange;
+            border-radius: 10%;
+            position: relative;
+            animation-name: testTwo;
+            animation-duration: 15s;
+            animation-iteration-count: infinite;
+
+
+        }
+
+        @keyframes testTwo {
+            0% {
+
+
+                transform: rotate(-360deg);
+            }
+            100%{
+
+                transform: rotate(360deg);
+            }
+        }
+
+    </style>
+</head>
+<body style="overflow: hidden;">
+<header>
+    <nav class="navbar navbar-expand-lg navbar-light shadow p-3 rounded" style="background-color: #c5edff;">
+        <div class="container-fluid">
+            <a class="navbar-brand fs-3 fw-bold" href="#" style="color: #0062a3; font-family: 'Oswald', sans-serif;">
+                THE SLICER
+            </a>
+
+        </div>
+        <div>
+            <a class="navbar-brand fs-3 fw-bold ps-5" href="#">SCORE - 20</a>
+        </div>
+
+    </nav>
+</header>
+<main style="background-color: #3c80ab; width: 100vw; height: 100vh" id="board">
+    <div class="cubes"></div>
+
+</main>
+
+
+<script src="assets/bootstrap/js/bootstrap.min.js"></script>
+<script src="assets/jQuerry/jquery-3.6.0.min.js"></script>
+<script>
+    var generaterocks = setInterval(() => {
+        var rock = document.createElement("div");
+        rock.classList.add("cubes");
+        //Just getting the left of the rock to place it in random position...
+        var rockleft = parseInt(
+            window.getComputedStyle(rock).getPropertyValue("left")
+        );
+        //generate value between 0 to 450 where 450 => board width - rock width
+        rock.style.left = Math.floor(Math.random() * 450) + "px";
+
+        board.appendChild(rock);
+    }, 1500);
+
+    var moverocks = setInterval(() => {
+        var rocks = document.getElementsByClassName("cubes");
+
+        if (rocks != undefined) {
+            for (var i = 0; i < rocks.length; i++) {
+                //Now I have to increase the top of each rock,so that the rocks can move downwards..
+                var rock = rocks[i]; //getting each rock
+                var rocktop = parseInt(
+                    window.getComputedStyle(rock).getPropertyValue("top")
+                );
+                //475 => boardheight - rockheight + 25
+                if (rocktop >= 475) {
+                    alert("Game Over");
+                    clearInterval(moverocks);
+                    window.location.reload();
+                }
+
+                rock.style.top = rocktop + 25 + "px";
+            }
+        }
+    }, 450);
+
+</script>
+</body>
+</html>
