@@ -1,3 +1,7 @@
+html{
+    scroll-behavior: smooth;
+}
+
 header {
     background-image: url("assets/images/2.jpg");
     height: 100vh;
@@ -834,4 +838,29 @@ html {
         margin: 0.58em 0;
     }
 
+}
+
+.to-top {
+    background: #212121;
+    position: fixed;
+    bottom: 16px;
+    right:32px;
+    width:50px;
+    height:50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size:32px;
+    color:#fff;
+    text-decoration: none;
+    opacity:0;
+    pointer-events: none;
+    transition: all .4s;
+}
+
+.to-top.active {
+    bottom:32px;
+    pointer-events: auto;
+    opacity:1;
 }
